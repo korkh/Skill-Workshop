@@ -1,5 +1,12 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
+import { PaginatedResult } from "../app/models/pagination";
+import { router } from "../app/layout/router/Routes";
+import { Training, TrainingFormValues } from "../app/models/training";
+import { IUser, IUserFormValues } from "../app/models/user";
+import { IUserTraining, Profile } from "../app/models/profile";
+import { IPhoto } from "../app/models/photo";
+import { store } from "../app/stores/store";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -28,7 +35,7 @@ axios.interceptors.response.use(
         response.data,
         JSON.parse(pagination)
       );
-      return response as AxiosResponse<PaginatedResult<any>>;
+      return response as AxiosResponse<PaginatedResult<unknown>>;
     }
     //if no pagination usual response returning
     return response;
@@ -38,7 +45,10 @@ axios.interceptors.response.use(
 
     switch (status) {
       case 400:
-        if (config.method === "get" && data.errors.hasOwnProperty("id")) {
+        if (
+          config.method === "get" &&
+          Object.prototype.hasOwnProperty.call(data.errors, "id")
+        ) {
           //we need that to separate jsut bad request from bad GUID
           //First we are checking that it is a GET request and if it is checking if there is property 'id' in errors.
           router.navigate("/not-found"); //we dont have an training that matches to something like a valid GUID and it ease to send to not-found page that explain that it was used not valid GUID..
@@ -86,11 +96,12 @@ const requests = {
   get: <T>(url: string) => axios.get<T>(url).then(responseBody),
   post: <T>(url: string, body: object) =>
     axios.post<T>(url, body).then(responseBody),
-  put: <T>(url: string, body: object) => axios.put<T>(url, body).then(responseBody),
+  put: <T>(url: string, body: object) =>
+    axios.put<T>(url, body).then(responseBody),
   del: <T>(url: string) => axios.delete<T>(url).then(responseBody),
 };
 
-const trainings = {
+const Trainings = {
   list: (params: URLSearchParams) =>
     axios
       .get<PaginatedResult<Training[]>>("/trainings", { params })
@@ -106,8 +117,9 @@ const trainings = {
 
 const Account = {
   current: () => requests.get<IUser>("/account"),
-  login: (user: UserFormValues) => requests.post<IUser>("/account/login", user),
-  register: (user: UserFormValues) =>
+  login: (user: IUserFormValues) =>
+    requests.post<IUser>("/account/login", user),
+  register: (user: IUserFormValues) =>
     requests.post<IUser>("/account/register", user),
   fbLogin: (accessToken: string) =>
     requests.post<IUser>(`/account/fbLogin?accessToken=${accessToken}`, {}),
@@ -126,7 +138,7 @@ const Profiles = {
   uploadPhoto: (file: Blob) => {
     const formData = new FormData();
     formData.append("File", file);
-    return axios.post<Photo>("photos", formData, {
+    return axios.post<IPhoto>("photos", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },
@@ -139,14 +151,14 @@ const Profiles = {
     requests.post(`/follow/${userName}`, {}),
   listFollowings: (userName: string, predicate: string) =>
     requests.get<Profile[]>(`/follow/${userName}?predicate=${predicate}`),
-  listtrainings: (userName: string, predicate: string) =>
-    requests.get<UserTraining[]>(
+  listTrainings: (userName: string, predicate: string) =>
+    requests.get<IUserTraining[]>(
       `/profiles/${userName}/trainings?predicate=${predicate}`
     ),
 };
 
 const agent = {
-  trainings,
+  Trainings,
   Account,
   Profiles,
 };
