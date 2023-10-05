@@ -4,6 +4,7 @@ import { Profile } from "../models/profile";
 import { IPagination, PagingParams } from "../models/pagination";
 import { ITraining, Training, TrainingFormValues } from "../models/training";
 import agent from "../../api/agent";
+import { store } from "./store";
 
 export default class TrainingStore {
   trainingRegistry = new Map<string, ITraining>();
@@ -88,7 +89,7 @@ export default class TrainingStore {
     );
   }
 
-  get groupedActivities() {
+  get groupedTrainings() {
     //Get array of objects {[key: string] : Training[]}
     //and each object will have a key (training.date) [key: string]
     //and each date will have an array of trainings inside IActivities[]
