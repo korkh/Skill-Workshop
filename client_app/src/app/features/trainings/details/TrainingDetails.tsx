@@ -29,12 +29,14 @@ const TrainingDetails = () => {
 
   return (
     <Grid>
-      <Grid.Column width={10}>
-        <TrainingDetailedHeader training={training} />
-        <TrainingDetailedInfo training={training} />
+      <Grid.Column width={4}>
         <TrainingDetailedChat trainingId={training.id} />
       </Grid.Column>
-      <Grid.Column width={6}>
+      <Grid.Column width={8}>
+        <TrainingDetailedHeader training={training} />
+        <TrainingDetailedInfo training={training} />
+      </Grid.Column>
+      <Grid.Column width={4}>
         <TrainingDetailedSidebar training={training} />
       </Grid.Column>
     </Grid>

@@ -2,6 +2,7 @@ import { observer } from "mobx-react-lite";
 import { List, Image, Popup, PopupContent } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { IProfile } from "../../../models/profile";
+import ProfileCard from "../../profiles/ProfileCard";
 
 interface Props {
   attendees: IProfile[];

@@ -5,6 +5,7 @@ import { Formik, Field, FieldProps } from "formik";
 import { Form, Link } from "react-router-dom";
 import { Comment, Segment, Header, Loader } from "semantic-ui-react";
 import * as Yup from "yup";
+import { observer } from "mobx-react-lite";
 
 interface Props {
   trainingId: string;
@@ -92,4 +93,4 @@ const TrainingDetailedChat = ({ trainingId }: Props) => {
   );
 };
 
-export default TrainingDetailedChat;
+export default observer(TrainingDetailedChat);

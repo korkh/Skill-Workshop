@@ -1,9 +1,9 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { AxiosError } from "axios";
 import { IUser, IUserFormValues } from "../models/user";
 import agent from "../../api/agent";
 import { router } from "../layout/router/Routes";
 import { store } from "./store";
+import { AxiosError } from "axios";
 
 export default class UserStore {
   user: IUser | null = null;
@@ -20,35 +20,38 @@ export default class UserStore {
   }
 
   login = async (credentials: IUserFormValues) => {
+    console.log(credentials);
     try {
       const user = await agent.Account.login(credentials);
+      console.log("Login Response:", user);
       store.commonStore.setToken(user.token);
       this.startRefreshTokenTimer(user);
       runInAction(() => (this.user = user));
-      router.navigate("/activities");
+      router.navigate("/trainings");
       store.modalStore.closeModal();
     } catch (error) {
-      console.log(error);
+      console.log("Login Error:", error);
       throw error;
     }
   };
 
-register = async (credentials: IUserFormValues) => {
-  try {
-    await agent.Account.register(credentials);
-    router.navigate(`/account/registerSuccess?email=${credentials.email}`);
-    store.modalStore.closeModal();
-  } catch (error) {
-    const axiosError = error as AxiosError; // Type assertion
+  register = async (credentials: IUserFormValues) => {
+    try {
+      await agent.Account.register(credentials);
+      router.navigate(
+        `/account/registrationSuccess?email=${credentials.email}`
+      );
+      store.modalStore.closeModal();
+    } catch (error) {
+      const axiosError = error as AxiosError; // Type assertion
 
-    if (axiosError.response && axiosError.response.status === 400) {
-      throw error;
+      if (axiosError.response && axiosError.response.status === 400) {
+        throw error;
+      }
+      store.modalStore.closeModal();
+      console.log(500);
     }
-    store.modalStore.closeModal();
-    console.log(500);
-  }
-};
-
+  };
 
   logout = () => {
     store.commonStore.setToken(null);
@@ -93,7 +96,7 @@ register = async (credentials: IUserFormValues) => {
         this.user = user;
         this.fbLoading = false;
       });
-      router.navigate("/activities");
+      router.navigate("/trainings");
     } catch (error) {
       console.log(error);
       runInAction(() => (this.fbLoading = false));

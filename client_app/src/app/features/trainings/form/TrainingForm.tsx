@@ -46,20 +46,20 @@ const TrainingForm = () => {
     if (!training.id) {
       training.id = crypto.randomUUID();
       createTraining(training).then(() =>
-        navigate(`/activities/${training.id}`)
+        navigate(`/trainings/${training.id}`)
       );
     } else {
       updateTraining(training).then(() =>
-        navigate(`/activities/${training.id}`)
+        navigate(`/trainings/${training.id}`)
       );
     }
   }
 
-  if (loadingInitial) return <LoadingComponent content="Loading activity..." />;
+  if (loadingInitial) return <LoadingComponent content="Loading training..." />;
 
   return (
     <Segment clearing>
-      <Header content="Activity Details" sub color="teal" />
+      <Header content="Training Details" sub color="teal" />
       <Formik
         validationSchema={validationSchema}
         enableReinitialize //get Activity updated after value is changed
@@ -97,7 +97,7 @@ const TrainingForm = () => {
             />
             <Button
               as={Link}
-              to={`/activities/${training.id}`}
+              to={`/trainings/${training.id}`}
               floated="right"
               type="button"
               content="Cancel"

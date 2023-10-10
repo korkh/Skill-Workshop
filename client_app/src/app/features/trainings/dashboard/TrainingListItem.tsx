@@ -26,7 +26,7 @@ export default function TrainingListItem({ training }: Props) {
               style={{ marginBottom: 5 }}
               size="tiny"
               circular
-              src={training.host?.image || "/assets/user.png"}
+              src={training.host?.image || "./user.png"}
             />
             <Item.Content>
               <Item.Header as={Link} to={`/trainings/${training.id}`}>
@@ -35,7 +35,6 @@ export default function TrainingListItem({ training }: Props) {
               <Item.Description>
                 Hosted by{" "}
                 <Link to={`/profiles/${training.hostUsername}`}>
-                  {" "}
                   {training.host?.displayName}
                 </Link>
               </Item.Description>

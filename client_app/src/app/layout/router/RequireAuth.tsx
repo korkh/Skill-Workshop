@@ -1,5 +1,6 @@
-import { useStore } from "../stores/store";
+
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { useStore } from "../../stores/store";
 
 const RequireAuth = () => {
   const {

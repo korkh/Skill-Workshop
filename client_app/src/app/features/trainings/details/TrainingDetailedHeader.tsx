@@ -1,21 +1,19 @@
-import { format } from "date-fns";
 import { Link } from "react-router-dom";
-import { Button, Header, Item, Segment, Image, Label } from "semantic-ui-react";
+import { format } from "date-fns";
 import { ITraining } from "../../../models/training";
 import { useStore } from "../../../stores/store";
-
-const trainingImageStyle = {
-  filter: "brightness(30%)",
-};
-
-const trainingImageTextStyle = {
-  position: "absolute",
-  bottom: "5%",
-  left: "5%",
-  width: "100%",
-  height: "auto",
-  color: "white",
-};
+import {
+  CancelledLabel,
+  LinkButton,
+  Title,
+  TrainingImage,
+  TrainingImageContainer,
+  TrainingImageText,
+  LoaderWrapper,
+} from ".";
+import { observer } from "mobx-react-lite";
+import ButtonWithLoader from "../../../components/UI_elements/button/Button";
+import Loader from "../../../components/loader/LoadingComponent";
 
 interface Props {
   training: ITraining;
@@ -26,87 +24,81 @@ const TrainingDetailedHeader = ({ training }: Props) => {
     trainingStore: { updateAttendance, loading, cancelTrainingToggle },
   } = useStore();
 
+  console.log(training.isGoing);
+
   return (
-    <Segment.Group>
-      <Segment basic attached="top" style={{ padding: "0" }}>
-        {training.isCancelled && (
-          <Label
-            style={{ position: "absolute", zIndex: 1000, left: -14, top: 20 }}
-            ribbon
-            color="red"
-            content="Cancelled"
-          />
-        )}
-        <Image
-          src={`/assets/categoryImages/${training.category}.jpg`}
-          fluid
-          style={trainingImageStyle}
+    <div>
+      <TrainingImageContainer>
+        {training.isCancelled && <CancelledLabel>Cancelled</CancelledLabel>}
+        <TrainingImage
+          src={`/categoryImages/${training.category}.jpg`}
+          alt="Training Category"
         />
-        <Segment style={trainingImageTextStyle} basic>
-          <Item.Group>
-            <Item>
-              <Item.Content>
-                <Header
-                  size="huge"
-                  content={training.title}
-                  style={{ color: "white" }}
-                />
-                <p>{format(training.date!, "dd MMM yyyy")}</p>
-                <p>
-                  Hosted by{" "}
-                  <strong>
-                    <Link to={`/profiles/${training.host?.userName}`}>
-                      {training.host?.displayName}
-                    </Link>
-                  </strong>
-                </p>
-              </Item.Content>
-            </Item>
-          </Item.Group>
-        </Segment>
-      </Segment>
-      <Segment clearing attached="bottom">
+        <TrainingImageText>
+          <div>
+            <Title>{training.title}</Title>
+            <p>{format(training.date!, "dd MMM yyyy")}</p>
+            <p>
+              Hosted by{" "}
+              <strong>
+                <Link to={`/profiles/${training.host?.userName}`}>
+                  {training.host?.displayName}
+                </Link>
+              </strong>
+            </p>
+          </div>
+        </TrainingImageText>
+      </TrainingImageContainer>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         {training.isHost ? (
           <>
-            <Button
-              color={training.isCancelled ? "green" : "red"}
-              floated="left"
-              basic
-              content={
-                training.isCancelled
-                  ? "Re-activate Training"
-                  : "Cancel Training"
-              }
-              loading={loading}
+            <ButtonWithLoader
+              isCancelled={training.isCancelled}
+              disabled={loading}
               onClick={cancelTrainingToggle}
-            />
-            <Button
-              disabled={training.isCancelled}
-              as={Link}
-              to={`/manage/${training.id}`}
-              color="orange"
-              floated="right"
+              titleStart="Re-activate training"
+              titleEnd="Cancel training"
             >
-              Manage Event
-            </Button>
+              {loading && (
+                <LoaderWrapper>
+                  <Loader />
+                </LoaderWrapper>
+              )}
+            </ButtonWithLoader>{" "}
+            <LinkButton to={`/manage/${training.id}`}>Manage Event</LinkButton>
           </>
         ) : training.isGoing ? (
-          <Button onClick={cancelTrainingToggle} loading={loading}>
-            Cancel attendance
-          </Button>
-        ) : (
-          <Button
-            onClick={updateAttendance}
-            disabled={training.isCancelled}
-            color="teal"
-            loading={loading}
+          <ButtonWithLoader
+            onClick={cancelTrainingToggle}
+            disabled={loading}
+            isCancelled={training.isCancelled}
+            titleStart="Join training"
+            titleEnd="Cancel attendance"
           >
-            Join Activity
-          </Button>
+            {loading && (
+              <LoaderWrapper>
+                <Loader />
+              </LoaderWrapper>
+            )}
+          </ButtonWithLoader>
+        ) : (
+          <ButtonWithLoader
+            onClick={updateAttendance}
+            disabled={loading}
+            isCancelled={!training.isGoing}
+            titleStart="Join training"
+            titleEnd="Cancel attendance"
+          >
+            {loading && (
+              <LoaderWrapper>
+                <Loader />
+              </LoaderWrapper>
+            )}
+          </ButtonWithLoader>
         )}
-      </Segment>
-    </Segment.Group>
+      </div>
+    </div>
   );
 };
 
-export default TrainingDetailedHeader;
+export default observer(TrainingDetailedHeader);

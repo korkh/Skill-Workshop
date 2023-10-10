@@ -1,0 +1,36 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  :root {
+  --index: calc(1vw + 1vh);
+  --logo-size: calc(var(--index) * 25);
+  --transition: .8s cubic-bezier(.075, .5, 0, 1);
+  }
+
+  body {
+    margin: 0;
+    color: #444;
+    background: #030006;
+    display: block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  
+  @font-face {
+      font-family: kamerik-3d;
+      src: url(../src/app/assets/fonts/kamerik205-heavy.woff2);
+      font-weight: 900;
+  }
+
+
+  .layer-1, .layer-2, .layer-3, .layer-5 {
+	pointer-events: none;
+}
+  

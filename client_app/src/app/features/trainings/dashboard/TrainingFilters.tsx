@@ -28,9 +28,7 @@ const TrainingFilters = () => {
           onClick={() => setPredicate("isHost", "true")}
         />
       </Menu>
-
       <Header />
-
       <Calendar
         onChange={(date) => setPredicate("startDate", date as Date)}
         value={predicate.get("startDate") || new Date()}

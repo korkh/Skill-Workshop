@@ -1,12 +1,12 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
-import { PaginatedResult } from "../app/models/pagination";
 import { router } from "../app/layout/router/Routes";
-import { Training, TrainingFormValues } from "../app/models/training";
-import { IUser, IUserFormValues } from "../app/models/user";
+import { PaginatedResult } from "../app/models/pagination";
 import { IUserTraining, Profile } from "../app/models/profile";
-import { IPhoto } from "../app/models/photo";
+import { IUser, IUserFormValues } from "../app/models/user";
 import { store } from "../app/stores/store";
+import { ITraining, TrainingFormValues } from "../app/models/training";
+import { IPhoto } from "../app/models/photo";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -41,53 +41,58 @@ axios.interceptors.response.use(
     return response;
   },
   (error: AxiosError) => {
-    const { data, status, config, headers } = error.response as AxiosResponse;
+    if (!error.response) {
+      console.error("No response received from the server");
+    } else {
+      const { data, status, config, headers } = error.response as AxiosResponse;
 
-    switch (status) {
-      case 400:
-        if (
-          config.method === "get" &&
-          Object.prototype.hasOwnProperty.call(data.errors, "id")
-        ) {
-          //we need that to separate jsut bad request from bad GUID
-          //First we are checking that it is a GET request and if it is checking if there is property 'id' in errors.
-          router.navigate("/not-found"); //we dont have an training that matches to something like a valid GUID and it ease to send to not-found page that explain that it was used not valid GUID..
-        }
-        if (data.errors) {
-          const modalStateErrors = [];
-          for (const key in data.errors) {
-            if (data.errors[key]) {
-              modalStateErrors.push(data.errors[key]);
-            }
+      switch (status) {
+        case 400:
+          if (
+            config.method === "get" &&
+            Object.prototype.hasOwnProperty.call(data.errors, "id")
+          ) {
+            //we need that to separate jsut bad request from bad GUID
+            //First we are checking that it is a GET request and if it is checking if there is property 'id' in errors.
+            router.navigate("/not-found"); //we dont have an training that matches to something like a valid GUID and it ease to send to not-found page that explain that it was used not valid GUID..
           }
-          throw modalStateErrors.flat();
-        } else {
-          toast.error(data);
-        }
-        break;
-      case 401:
-        if (
-          status === 401 &&
-          headers["www-authenticate"]?.startsWith(
-            'Bearer error="invalid_token"'
-          )
-        ) {
-          store.userStore.logout();
-          toast.error("Session expired - please login again");
-        }
-        break;
-      case 403:
-        toast.error("forbidden");
-        break;
-      case 404:
-        toast.error("not found");
-        router.navigate("/not-found");
-        break;
-      case 500:
-        store.commonStore.setServerError(data);
-        router.navigate("/server-error");
-        break;
+          if (data.errors) {
+            const modalStateErrors = [];
+            for (const key in data.errors) {
+              if (data.errors[key]) {
+                modalStateErrors.push(data.errors[key]);
+              }
+            }
+            throw modalStateErrors.flat();
+          } else {
+            toast.error(data);
+          }
+          break;
+        case 401:
+          if (
+            status === 401 &&
+            headers["www-authenticate"]?.startsWith(
+              'Bearer error="invalid_token"'
+            )
+          ) {
+            store.userStore.logout();
+            toast.error("Session expired - please login again");
+          }
+          break;
+        case 403:
+          toast.error("forbidden");
+          break;
+        case 404:
+          toast.error("not found");
+          router.navigate("/not-found");
+          break;
+        case 500:
+          store.commonStore.setServerError(data);
+          router.navigate("/server-error");
+          break;
+      }
     }
+
     return Promise.reject(error);
   }
 );
@@ -104,9 +109,9 @@ const requests = {
 const Trainings = {
   list: (params: URLSearchParams) =>
     axios
-      .get<PaginatedResult<Training[]>>("/trainings", { params })
+      .get<PaginatedResult<ITraining[]>>("/trainings", { params })
       .then(responseBody),
-  details: (id: string) => requests.get<Training>(`/trainings/${id}`),
+  details: (id: string) => requests.get<ITraining>(`/trainings/${id}`),
   create: (training: TrainingFormValues) =>
     requests.post<void>("/trainings", training),
   update: (training: TrainingFormValues) =>
@@ -151,7 +156,7 @@ const Profiles = {
     requests.post(`/follow/${userName}`, {}),
   listFollowings: (userName: string, predicate: string) =>
     requests.get<Profile[]>(`/follow/${userName}?predicate=${predicate}`),
-  listTrainings: (userName: string, predicate: string) =>
+  listtrainings: (userName: string, predicate: string) =>
     requests.get<IUserTraining[]>(
       `/profiles/${userName}/trainings?predicate=${predicate}`
     ),

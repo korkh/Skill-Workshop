@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Button, Container, Menu, Image, Dropdown } from "semantic-ui-react";
-import { useStore } from "./stores/store";
 import { observer } from "mobx-react-lite";
+import { useStore } from "../../stores/store";
 
 const NavBar = () => {
   const {
@@ -13,22 +13,22 @@ const NavBar = () => {
       <Container>
         <Menu.Item as={NavLink} to="/" header>
           <img
-            src="/assets/logo.png"
+            src="../../src/app/assets/login/logo.png"
             alt="logo"
             style={{ marginRight: "10px" }}
           />
-          ActiviGo
+          Skill Workshop
         </Menu.Item>
         {isLoggedIn && (
           <>
-            <Menu.Item as={NavLink} to="/activities" name="Activities" />
+            <Menu.Item as={NavLink} to="/trainings" name="Trainings" />
             <Menu.Item as={NavLink} to="/errors" name="Errors" />
             <Menu.Item>
               <Button
                 as={NavLink}
-                to="/createActivity"
+                to="/createTraining"
                 positive
-                content="Create Activity"
+                content="Create Training"
               />
             </Menu.Item>
             <Menu.Item position="right">
