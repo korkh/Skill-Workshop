@@ -1,18 +1,33 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { useStore } from "../../../stores/store";
 import { formatDistanceToNow } from "date-fns";
-import { Formik, Field, FieldProps } from "formik";
-import { Form, Link } from "react-router-dom";
-import { Comment, Segment, Header, Loader } from "semantic-ui-react";
+import { Formik, Field, FieldProps, Form } from "formik";
 import * as Yup from "yup";
 import { observer } from "mobx-react-lite";
+import {
+  ChatContainer,
+  ChatHeader,
+  ChatContent,
+  CommentInputContainer,
+  CommentItem,
+  CommentAvatar,
+  CommentContent,
+  CommentAuthor,
+  CommentMetadata,
+  CommentText,
+  ChatList,
+  UserMessage,
+  OtherUserMessage,
+  ChatTextArea,
+} from ".";
+import LoadingComponent from "../../../components/loader/LoadingComponent";
 
 interface Props {
   trainingId: string;
 }
 
 const TrainingDetailedChat = ({ trainingId }: Props) => {
-  const { commentStore } = useStore();
+  const { commentStore, userStore } = useStore();
 
   useEffect(() => {
     if (trainingId) {
@@ -23,23 +38,21 @@ const TrainingDetailedChat = ({ trainingId }: Props) => {
     return () => {
       commentStore.clearComments();
     };
-  }, [trainingId, commentStore]);
+  }, [commentStore, trainingId]);
+
   return (
-    <>
-      <Segment
-        textAlign="center"
-        attached="top"
-        inverted
-        color="teal"
-        style={{ border: "none" }}
-      >
-        <Header>Chat about this event</Header>
-      </Segment>
-      <Segment attached clearing>
+    <ChatContainer>
+      <ChatHeader>
+        <h2>Chat about this event</h2>
+      </ChatHeader>
+      <ChatContent>
         <Formik
-          onSubmit={(values, { resetForm }) =>
-            commentStore.addComment(values).then(() => resetForm())
-          }
+          onSubmit={(values, { resetForm }) => {
+            commentStore.addComment(values).then(() => {
+              resetForm();
+              // setDisplayMetadata(false);
+            });
+          }}
           initialValues={{ body: "" }}
           validationSchema={Yup.object({
             body: Yup.string().required(),
@@ -49,9 +62,9 @@ const TrainingDetailedChat = ({ trainingId }: Props) => {
             <Form className="ui form">
               <Field name="body">
                 {(props: FieldProps) => (
-                  <div style={{ position: "relative" }}>
-                    <Loader active={isSubmitting} />
-                    <textarea
+                  <CommentInputContainer>
+                    {isSubmitting && <LoadingComponent />}
+                    <ChatTextArea
                       placeholder="Enter your comment (enter to submit, shift + enter for new line)"
                       rows={2}
                       {...props.field}
@@ -64,32 +77,45 @@ const TrainingDetailedChat = ({ trainingId }: Props) => {
                         }
                       }}
                     />
-                  </div>
+                  </CommentInputContainer>
                 )}
               </Field>
             </Form>
           )}
         </Formik>
-        <Comment.Group>
+        <ChatList>
           {commentStore.comments.map((comment) => (
-            <Comment key={comment.id}>
-              <Comment.Avatar src={comment.image || "/assets/user.png"} />
-              <Comment.Content>
-                <Comment.Author as={Link} to={`/profiles/${comment.userName}`}>
-                  {comment.displayName}
-                </Comment.Author>
-                <Comment.Metadata>
-                  <div>{formatDistanceToNow(comment.createdAt)} ago</div>
-                </Comment.Metadata>
-                <Comment.Text style={{ whiteSpace: "pre-wrap" }}>
-                  {comment.body}
-                </Comment.Text>
-              </Comment.Content>
-            </Comment>
+            <Fragment key={comment.id}>
+              {comment.userName === userStore.user?.userName ? (
+                <UserMessage>
+                  <CommentText>{comment.body}</CommentText>
+                </UserMessage>
+              ) : (
+                <OtherUserMessage>
+                  <CommentItem>
+                    <CommentAvatar>
+                      <img
+                        src={comment.image || "/user.png"}
+                        alt="User Avatar"
+                      />
+                    </CommentAvatar>
+                    <CommentContent>
+                      <CommentAuthor href={`/profiles/${comment.userName}`}>
+                        {comment.displayName}
+                      </CommentAuthor>
+                    </CommentContent>
+                  </CommentItem>
+                  <CommentText>{comment.body}</CommentText>
+                </OtherUserMessage>
+              )}
+              <CommentMetadata>
+                <span>{formatDistanceToNow(comment.createdAt)} ago</span>
+              </CommentMetadata>
+            </Fragment>
           ))}
-        </Comment.Group>
-      </Segment>
-    </>
+        </ChatList>
+      </ChatContent>
+    </ChatContainer>
   );
 };
 

@@ -24,8 +24,6 @@ const TrainingDetailedHeader = ({ training }: Props) => {
     trainingStore: { updateAttendance, loading, cancelTrainingToggle },
   } = useStore();
 
-  console.log(training.isGoing);
-
   return (
     <div>
       <TrainingImageContainer>

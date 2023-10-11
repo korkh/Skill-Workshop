@@ -32,7 +32,7 @@ const ProfileTrainings = () => {
     <Tab.Pane loading={loadingTrainings}>
       <Grid>
         <Grid.Column width={16}>
-          <Header floated="left" icon="calendar" content={"Activities"} />
+          <Header floated="left" icon="calendar" content={"Trainings"} />
         </Grid.Column>
         <Grid.Column width={16}>
           <Tab
@@ -42,21 +42,21 @@ const ProfileTrainings = () => {
           />
           <br />
           <Card.Group itemsPerRow={4}>
-            {userTrainings.map((activity: IUserTraining) => (
+            {userTrainings.map((training: IUserTraining) => (
               <Card
                 as={Link}
-                to={`/activities/${activity.id}`}
-                key={activity.id}
+                to={`/trainings/${training.id}`}
+                key={training.id}
               >
                 <Image
-                  src={`/assets/categoryImages/${activity.category}.jpg`}
+                  src={`/categoryImages/${training.category}.jpg`}
                   style={{ minHeight: 100, objectFit: "cover" }}
                 />
                 <Card.Content>
-                  <Card.Header textAlign="center">{activity.title}</Card.Header>
+                  <Card.Header textAlign="center">{training.title}</Card.Header>
                   <Card.Meta textAlign="center">
-                    <div>{format(new Date(activity.date), "do LLL")}</div>
-                    <div>{format(new Date(activity.date), "h:mm a")}</div>
+                    <div>{format(new Date(training.date), "do LLL")}</div>
+                    <div>{format(new Date(training.date), "h:mm a")}</div>
                   </Card.Meta>
                 </Card.Content>
               </Card>

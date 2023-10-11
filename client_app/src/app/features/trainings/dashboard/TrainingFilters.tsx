@@ -1,39 +1,60 @@
 import { observer } from "mobx-react-lite";
-import Calendar from "react-calendar";
-import { Header, Menu } from "semantic-ui-react";
+import DatePicker from "react-date-picker";
 import { useStore } from "../../../stores/store";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import {
+  FilterItem,
+  FiltersContainer,
+  FiltersDropdown,
+  FiltersHeader,
+} from ".";
+import { useState } from "react";
+
+interface IOptions {
+  value: string;
+  title: string;
+}
 
 const TrainingFilters = () => {
   const {
     trainingStore: { predicate, setPredicate },
   } = useStore();
 
+  const [selectedFilter, setSelectedFilter] = useState("all");
+  const options: IOptions[] = [
+    { value: "all", title: "All trainings" },
+    { value: "isGoing", title: "I'm going" },
+    { value: "isHost", title: "I'm hosting" },
+  ];
+
+  const handleFilterChange = (value: string) => {
+    setSelectedFilter(value);
+    setPredicate(value, "true");
+  };
+
   return (
-    <>
-      <Menu vertical size="large" style={{ width: "100%", marginTop: 28 }}>
-        <Header icon="filter" attached color="teal" content="Filters" />
-        <Menu.Item
-          content="All trainings"
-          active={predicate.has("all")}
-          onClick={() => setPredicate("all", "true")}
-        />
-        <Menu.Item
-          content="I'm going"
-          active={predicate.has("isGoing")}
-          onClick={() => setPredicate("isGoing", "true")}
-        />
-        <Menu.Item
-          content="I'm hosting"
-          active={predicate.has("isHost")}
-          onClick={() => setPredicate("isHost", "true")}
-        />
-      </Menu>
-      <Header />
-      <Calendar
+    <FiltersContainer>
+      <FiltersHeader>
+        <FontAwesomeIcon icon={faFilter} />
+        <p>Filters</p>
+      </FiltersHeader>
+      <FiltersDropdown
+        value={selectedFilter}
+        onChange={(e) => handleFilterChange(e.target.value)}
+      >
+        {options.map((item, index) => (
+          <FilterItem key={index} value={item.value}>
+            {item.title}
+          </FilterItem>
+        ))}
+      </FiltersDropdown>
+      <DatePicker
+        className="date-picker"
         onChange={(date) => setPredicate("startDate", date as Date)}
         value={predicate.get("startDate") || new Date()}
       />
-    </>
+    </FiltersContainer>
   );
 };
 

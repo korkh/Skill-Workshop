@@ -1,13 +1,13 @@
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Grid } from "semantic-ui-react";
 import TrainingDetailedHeader from "./TrainingDetailedHeader";
 import LoadingComponent from "../../../components/loader/LoadingComponent";
 import { useStore } from "../../../stores/store";
 import TrainingDetailedChat from "./TrainingDetailedChat";
 import TrainingDetailedInfo from "./TrainingDetailedInfo";
 import TrainingDetailedSidebar from "./TrainingDetailedSidebar";
+import { TrainingDetailsContainer, TrainingDetailsColumn } from ".";
 
 const TrainingDetails = () => {
   const { trainingStore } = useStore();
@@ -28,18 +28,18 @@ const TrainingDetails = () => {
   if (loadingInitial || !training) return <LoadingComponent />;
 
   return (
-    <Grid>
-      <Grid.Column width={4}>
+    <TrainingDetailsContainer>
+      <TrainingDetailsColumn $columnWidthFlex={0.6}>
         <TrainingDetailedChat trainingId={training.id} />
-      </Grid.Column>
-      <Grid.Column width={8}>
+      </TrainingDetailsColumn>
+      <TrainingDetailsColumn>
         <TrainingDetailedHeader training={training} />
         <TrainingDetailedInfo training={training} />
-      </Grid.Column>
-      <Grid.Column width={4}>
+      </TrainingDetailsColumn>
+      <TrainingDetailsColumn $columnWidthFlex={0.4}>
         <TrainingDetailedSidebar training={training} />
-      </Grid.Column>
-    </Grid>
+      </TrainingDetailsColumn>
+    </TrainingDetailsContainer>
   );
 };
 

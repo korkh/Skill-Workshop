@@ -12,7 +12,7 @@ const rotation = keyframes`
 const Loader = styled.div`
   width: 20px;
   height: 20px;
-  border: 5px solid #fff;
+  border: 3px solid #ccc;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;

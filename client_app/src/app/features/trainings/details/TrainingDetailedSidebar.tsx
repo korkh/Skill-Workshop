@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
-import { Image, Segment, List, Item, Label } from "semantic-ui-react";
 import { ITraining } from "../../../models/training";
+import {
+  SidebarContainer,
+  SidebarHeader,
+  AttendeeList,
+  AttendeeItem,
+  HostLabel,
+  AttendeeImage,
+  AttendeeInfo,
+  AttendeeName,
+  FollowingLabel,
+} from ".";
 
 interface Props {
   training: ITraining;
@@ -9,49 +19,35 @@ interface Props {
 const TrainingDetailedSidebar = ({ training: { attendees, host } }: Props) => {
   if (!attendees) return null;
   return (
-    <>
-      <Segment
-        textAlign="center"
-        style={{ border: "none" }}
-        attached="top"
-        secondary
-        inverted
-        color="teal"
-      >
-        {attendees.length} {attendees.length === 1 ? "Person" : "People"} going
-      </Segment>
-      <Segment attached>
-        <List relaxed divided>
-          {attendees.map((attendee) => (
-            <Item style={{ position: "relative" }} key={attendee.userName}>
-              {attendee.userName === host?.userName && (
-                <Label
-                  style={{ position: "absolute" }}
-                  color="orange"
-                  ribbon="right"
-                >
-                  Host
-                </Label>
-              )}
-              <Image
-                size="tiny"
-                src={attendee.image || "/user.png"}
-              />
-              <Item.Content verticalAlign="middle">
-                <Item.Header as="h3">
-                  <Link to={`/profiles/${attendee.userName}`}>
-                    {attendee.displayName}
-                  </Link>
-                </Item.Header>
-                {attendee.following && (
-                  <Item.Extra style={{ color: "orange" }}>Following</Item.Extra>
-                )}
-              </Item.Content>
-            </Item>
-          ))}
-        </List>
-      </Segment>
-    </>
+    <SidebarContainer>
+      <SidebarHeader>
+        <p>
+          {attendees.length} {attendees.length === 1 ? "Person is" : "People are"}{" "}
+          going
+        </p>
+      </SidebarHeader>
+      <AttendeeList>
+        {attendees.map((attendee) => (
+          <AttendeeItem key={attendee.userName}>
+            <AttendeeImage
+              src={attendee.image || "/user.png"}
+              alt={attendee.displayName}
+            />
+            <AttendeeInfo>
+              <AttendeeName>
+                <Link to={`/profiles/${attendee.userName}`}>
+                  {attendee.displayName}
+                </Link>
+              </AttendeeName>
+              {attendee.following && <FollowingLabel>Following</FollowingLabel>}
+            </AttendeeInfo>
+            {attendee.userName === host?.userName && (
+              <HostLabel>Host</HostLabel>
+            )}
+          </AttendeeItem>
+        ))}
+      </AttendeeList>
+    </SidebarContainer>
   );
 };
 

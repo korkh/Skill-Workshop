@@ -57,25 +57,25 @@ const LayersItem = styled.div`
   justify-content: center;
 
   &.layer-1 {
-    transform: translateZ(-50px) scale(1.1);
+    transform: translateZ(-100px) scale(1.1);
   }
 
   &.layer-2 {
-    transform: translateZ(20px) scale(0.75);
+    transform: translateZ(-50px) scale(0.75);
     filter: blur(2px);
   }
 
   &.layer-3 {
-    transform: translateZ(50px) scale(0.85);
+    transform: translateZ(-30px) scale(0.85);
     filter: blur(1px);
   }
 
   &.layer-4 {
-    transform: translateZ(60px) scale(1.2);
+    transform: translateZ(20px) scale(1.2);
   }
 
   &.layer-5 {
-    transform: translateZ(90px) scale(0.9);
+    transform: translateZ(40px) scale(0.9);
   }
 `;
 

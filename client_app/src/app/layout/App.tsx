@@ -1,6 +1,5 @@
 import { observer } from "mobx-react-lite";
 import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
-import { Container } from "semantic-ui-react";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import LoadingComponent from "../components/loader/LoadingComponent";
@@ -8,6 +7,10 @@ import ModalContainer from "../components/common/modals/ModalContainer";
 import NavBar from "./navbar/NavBar";
 import { useStore } from "../stores/store";
 import MainPage from "../pages/MainPage";
+import AppContainer from ".";
+import "semantic-ui-css/semantic.min.css";
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
 
 function App() {
   const location = useLocation();
@@ -35,9 +38,9 @@ function App() {
       ) : (
         <>
           <NavBar />
-          <Container style={{ marginTop: "7em" }}>
+          <AppContainer>
             <Outlet />
-          </Container>
+          </AppContainer>
         </>
       )}
     </>

@@ -14,7 +14,7 @@
 
   body {
     margin: 0;
-    color: #444;
+    color: #fff;
     background: #030006;
     display: block;
     -webkit-font-smoothing: antialiased;
@@ -29,8 +29,17 @@
       font-weight: 900;
   }
 
+  @font-face {
+    font-family: merriweather_r;
+    src: url(../src/app/assets/fonts/merriweather-regular-italic.woff2);
+}
+
 
   .layer-1, .layer-2, .layer-3, .layer-5 {
 	pointer-events: none;
+}
+
+.date-picker {
+  width: 100%;
 }
   
