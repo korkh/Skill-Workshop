@@ -1,19 +1,10 @@
-import { Link } from "react-router-dom";
-import { format } from "date-fns";
 import { ITraining } from "../../../models/training";
 import { useStore } from "../../../stores/store";
-import {
-  CancelledLabel,
-  LinkButton,
-  Title,
-  TrainingImage,
-  TrainingImageContainer,
-  TrainingImageText,
-  LoaderWrapper,
-} from ".";
+import { LinkButton, LoaderWrapper } from ".";
 import { observer } from "mobx-react-lite";
 import ButtonWithLoader from "../../../components/UI_elements/button/Button";
 import Loader from "../../../components/loader/LoadingComponent";
+import TrainingDetailedImage from "./TrainingDetailedImage";
 
 interface Props {
   training: ITraining;
@@ -25,28 +16,8 @@ const TrainingDetailedHeader = ({ training }: Props) => {
   } = useStore();
 
   return (
-    <div>
-      <TrainingImageContainer>
-        {training.isCancelled && <CancelledLabel>Cancelled</CancelledLabel>}
-        <TrainingImage
-          src={`/categoryImages/${training.category}.jpg`}
-          alt="Training Category"
-        />
-        <TrainingImageText>
-          <div>
-            <Title>{training.title}</Title>
-            <p>{format(training.date!, "dd MMM yyyy")}</p>
-            <p>
-              Hosted by{" "}
-              <strong>
-                <Link to={`/profiles/${training.host?.userName}`}>
-                  {training.host?.displayName}
-                </Link>
-              </strong>
-            </p>
-          </div>
-        </TrainingImageText>
-      </TrainingImageContainer>
+    <>
+      <TrainingDetailedImage training={training} />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         {training.isHost ? (
           <>
@@ -95,7 +66,7 @@ const TrainingDetailedHeader = ({ training }: Props) => {
           </ButtonWithLoader>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

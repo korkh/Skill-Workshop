@@ -1,81 +1,86 @@
-import { Link } from "react-router-dom";
-import { Button, Icon, Item, Label, Segment } from "semantic-ui-react";
 import { format } from "date-fns";
 import { ITraining } from "../../../models/training";
 import TrainingListItemAttendee from "./TrainingListItemAttendee";
+import {
+  ButtonContainer,
+  ButtonLink,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemImage,
+  ItemUserName,
+  Label,
+  PlaceholderContainer,
+  Segment,
+  SegmentGroup,
+} from ".";
+import { CancelledLabel } from "../details";
+import { Icon } from "semantic-ui-react";
+import TrainingDetailedImage from "../details/TrainingDetailedImage";
+import { observer } from "mobx-react-lite";
 
 interface Props {
   training: ITraining;
 }
 
-export default function TrainingListItem({ training }: Props) {
+const TrainingListItem = ({ training }: Props) => {
   return (
-    <Segment.Group>
-      <Segment>
-        {training.isCancelled && (
-          <Label
-            attached="top"
-            color="red"
-            content="Cancelled"
-            style={{ textAlign: "center" }}
-          />
-        )}
-        <Item.Group>
-          <Item>
-            <Item.Image
-              style={{ marginBottom: 5 }}
-              size="tiny"
-              circular
-              src={training.host?.image || "./user.png"}
-            />
-            <Item.Content>
-              <Item.Header as={Link} to={`/trainings/${training.id}`}>
-                {training.title}
-              </Item.Header>
-              <Item.Description>
-                Hosted by{" "}
-                <Link to={`/profiles/${training.hostUsername}`}>
+    <>
+      <PlaceholderContainer>
+        <SegmentGroup $flex={1}>
+          <TrainingDetailedImage training={training} titleAsLink image />
+        </SegmentGroup>
+        <SegmentGroup $flex={0.4}>
+          <Segment>
+            {training.isCancelled && <CancelledLabel>Cancelled</CancelledLabel>}
+            <ItemGroup>
+              <ItemImage src={training.host?.image || "./user.png"} />
+              <strong>
+                <ItemUserName
+                  to={`/profiles/${training.host?.userName}`}
+                  $fontSize="20px"
+                >
                   {training.host?.displayName}
-                </Link>
-              </Item.Description>
-              {training.isHost && (
-                <Item.Description>
-                  <Label basic color="orange">
-                    You are hosting this training
-                  </Label>
-                </Item.Description>
-              )}
-
-              {training.isGoing && !training.isHost && (
-                <Item.Description>
-                  <Label basic color="green">
-                    You are going to this training
-                  </Label>
-                </Item.Description>
-              )}
-            </Item.Content>
-          </Item>
-        </Item.Group>
-      </Segment>
-      <Segment>
-        <span>
-          <Icon name="clock" /> {format(training.date!, "dd MMM yyyy h:mm aa")}
-          <Icon name="marker" /> {training.venue}
-        </span>
-      </Segment>
-      <Segment secondary>
-        <TrainingListItemAttendee attendees={training.attendees!} />
-      </Segment>
-      <Segment clearing>
-        <span>{training.description}</span>
-        <Button
-          as={Link}
-          to={`/trainings/${training.id}`}
-          color="teal"
-          floated="right"
-          content="view"
-        />
-      </Segment>
-    </Segment.Group>
+                </ItemUserName>
+              </strong>
+            </ItemGroup>
+          </Segment>
+          <Segment>
+            <span>
+              <Icon name="clock" />{" "}
+              {format(training.date!, "dd MMM yyyy h:mm aa")}
+              <Icon name="marker" /> {training.venue}
+              <span>{training.description}</span>
+              <ItemContent>
+                {training.isHost && (
+                  <ItemDescription>
+                    <Label $bgcolor="orange">
+                      You are hosting this training
+                    </Label>
+                  </ItemDescription>
+                )}
+                {training.isGoing && !training.isHost && (
+                  <ItemDescription>
+                    <Label $bgcolor="green">
+                      You are going to this training
+                    </Label>
+                  </ItemDescription>
+                )}
+              </ItemContent>
+            </span>
+          </Segment>
+          <Segment>
+            <TrainingListItemAttendee attendees={training.attendees!} />
+          </Segment>
+          <Segment $reduced>
+            <ButtonContainer>
+              <ButtonLink to={`/trainings/${training.id}`}>View</ButtonLink>
+            </ButtonContainer>
+          </Segment>
+        </SegmentGroup>
+      </PlaceholderContainer>
+    </>
   );
-}
+};
+
+export default observer(TrainingListItem);

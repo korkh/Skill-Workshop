@@ -25,6 +25,9 @@ const TrainingDashboard = () => {
   }, [trainingRegistry.size, loadTrainings]);
   return (
     <Grid>
+      <Grid.Column width="3">
+        <TrainingFilters />
+      </Grid.Column>
       <Grid.Column width="13">
         {trainingStore.loadingInitial && !loadingNext ? (
           <>
@@ -46,9 +49,7 @@ const TrainingDashboard = () => {
           </InfiniteScroll>
         )}
       </Grid.Column>
-      <Grid.Column width="3">
-        <TrainingFilters />
-      </Grid.Column>
+      
       <GridColumn width={10}>
         <Loader active={loadingNext} />
       </GridColumn>

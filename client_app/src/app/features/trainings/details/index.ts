@@ -43,6 +43,12 @@ const Title = styled.h1`
   color: white;
 `;
 
+const ItemHeader = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  font-size: 2.3rem;
+`;
+
 const Button = styled.button<ButtonProps>`
   && {
     background-color: ${(props) => (props.isCancelled ? "green" : "red")};
@@ -141,6 +147,12 @@ const TrainingHeader = styled.h1`
   margin-bottom: 10px;
 `;
 
+const ItemImage = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+`;
+
 const TrainingInfo = styled.p`
   font-size: 16px;
   line-height: 1.4;
@@ -217,6 +229,14 @@ const AttendeeName = styled.h3`
   font-size: 16px;
   margin: 0;
   color: #333;
+`;
+
+interface UserNameProps {
+  $fontSize?: string;
+}
+
+const ItemUserName = styled(Link)<UserNameProps>`
+  font-size: ${(props) => (props.$fontSize ? props.$fontSize : "16px")};
 `;
 
 const FollowingLabel = styled.p`
@@ -334,6 +354,7 @@ export {
   InfoContainer,
   InfoSegment,
   IconContainer,
+  ItemHeader,
   MyIcon,
   InfoDescription,
   TrainingDetailsContainer,
@@ -364,4 +385,6 @@ export {
   ChatList,
   UserMessage,
   OtherUserMessage,
+  ItemUserName,
+  ItemImage,
 };

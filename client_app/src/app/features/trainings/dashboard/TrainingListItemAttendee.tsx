@@ -29,7 +29,7 @@ const TrainingListItemAttendee = ({ attendees }: Props) => {
               <Image
                 size="mini"
                 circular
-                src={attendee.image || "/assets/user.png"}
+                src={attendee.image || "/user.png"}
                 bordered
                 style={attendee.following ? styles : null}
               />

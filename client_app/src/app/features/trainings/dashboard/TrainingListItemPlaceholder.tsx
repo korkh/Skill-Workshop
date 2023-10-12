@@ -1,34 +1,35 @@
-import { Fragment } from "react";
-import { Segment, Button, Placeholder } from "semantic-ui-react";
+import {
+  PlaceholderContainer,
+  PlaceholderButton,
+  PlaceholderLine,
+  SegmentGroup,
+  Segment,
+} from ".";
 
 export default function TrainingListItemPlaceholder() {
   return (
-    <Fragment>
-      <Placeholder fluid style={{ marginTop: 25 }}>
-        <Segment.Group>
-          <Segment style={{ minHeight: 110 }}>
-            <Placeholder>
-              <Placeholder.Header image>
-                <Placeholder.Line />
-                <Placeholder.Line />
-              </Placeholder.Header>
-              <Placeholder.Paragraph>
-                <Placeholder.Line />
-              </Placeholder.Paragraph>
-            </Placeholder>
-          </Segment>
-          <Segment>
-            <Placeholder>
-              <Placeholder.Line />
-              <Placeholder.Line />
-            </Placeholder>
-          </Segment>
-          <Segment secondary style={{ minHeight: 70 }} />
-          <Segment clearing>
-            <Button disabled color="blue" floated="right" content="View" />
-          </Segment>
-        </Segment.Group>
-      </Placeholder>
-    </Fragment>
+    <PlaceholderContainer>
+      <SegmentGroup $flex={1} $bgcolor="#ccc" $bdrcolor="#fff" />
+      <SegmentGroup $flex={0.5}>
+        <Segment>
+          <PlaceholderLine width="80%" />
+          <PlaceholderLine width="60%" />
+          <PlaceholderLine width="90%" />
+        </Segment>
+        <Segment>
+          <PlaceholderLine width="80%" />
+          <PlaceholderLine width="60%" />
+          <PlaceholderLine width="90%" />
+        </Segment>
+        <Segment>
+          <PlaceholderLine width="80%" />
+          <PlaceholderLine width="60%" />
+          <PlaceholderLine width="90%" />
+        </Segment>
+        <Segment $reduced>
+          <PlaceholderButton disabled>View</PlaceholderButton>
+        </Segment>
+      </SegmentGroup>
+    </PlaceholderContainer>
   );
 }
