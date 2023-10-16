@@ -2,11 +2,14 @@ import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { Button, Grid, Header, TabPane } from "semantic-ui-react";
 import { useStore } from "../../stores/store";
+import ProfileEditForm from "./ProfileEditForm";
 
 const ProfileAbout = () => {
   const [editMode, setEditMode] = useState(false);
   const { profileStore } = useStore();
   const { isCurrentUser, profile } = profileStore;
+
+  console.log(profile?.bio);
 
   return (
     <TabPane>

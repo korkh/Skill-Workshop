@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button, Header, Segment, TextArea } from "semantic-ui-react";
 import * as Yup from "yup";
 import { categoryOptions } from "../../../components/common/options/CategoryOptions";
-import LoadingComponent from "../../../components/loader/LoadingComponent";
+import Loader from "../../../components/loader/LoadingComponent";
 import { TrainingFormValues } from "../../../models/training";
 import { useStore } from "../../../stores/store";
 import DateInput from "../../../components/common/form/DateInput";
@@ -55,7 +55,7 @@ const TrainingForm = () => {
     }
   }
 
-  if (loadingInitial) return <LoadingComponent content="Loading training..." />;
+  if (loadingInitial) return <Loader $zoom={2} />;
 
   return (
     <Segment clearing>

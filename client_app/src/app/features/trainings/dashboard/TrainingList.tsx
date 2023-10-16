@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
-import { Header } from "semantic-ui-react";
 import { Fragment } from "react";
 import { useStore } from "../../../stores/store";
 import TrainingListItem from "./TrainingListItem";
+import { TrainingListHeader } from ".";
 
 const TrainingList = () => {
   const { trainingStore } = useStore();
@@ -14,9 +14,9 @@ const TrainingList = () => {
         <>
           {groupedTrainings.map(([group, trainings]) => (
             <Fragment key={group}>
-              <Header sub color="teal">
+              <TrainingListHeader>
                 {group}
-              </Header>
+              </TrainingListHeader>
               {trainings.map((training) => (
                 <TrainingListItem training={training} key={training.id} />
               ))}

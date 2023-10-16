@@ -1,16 +1,16 @@
 import { makeAutoObservable, reaction, runInAction } from "mobx";
-import { IProfile, IUserTraining } from "../models/profile";
+import { IProfile, IUserTraining, Profile } from "../models/profile";
 import { IPhoto } from "../models/photo";
 import agent from "../../api/agent";
 import { store } from "./store";
 export default class ProfileStore {
-  profile: IProfile | null = null;
+  profile: Profile | null = null;
   loadingProfile = false;
   uploading = false;
   loading = false;
   followings: IProfile[] = [];
   loadingFollowings: boolean = false;
-  activeTab: number | string | undefined = 0;
+  activeTab: number = 0;
   userTrainings: IUserTraining[] = [];
   loadingTrainings = false;
 
@@ -30,7 +30,7 @@ export default class ProfileStore {
     );
   }
 
-  setActiveTab = (activeTab: number | string | undefined) => {
+  setActiveTab = (activeTab: number) => {
     this.activeTab = activeTab;
   };
 
@@ -127,8 +127,13 @@ export default class ProfileStore {
         ) {
           store.userStore.setDisplayName(profile.displayName);
         }
-        //we are setting the Profile with the existing profile and overwriting any changes to the profile from the partial profile we are passing in as a parameter so we need to make use of the ‘as Profile’ to make TypeScript happy
+        if (profile.bio && this.profile) {
+          console.log("Bio inside store as new bio", profile.bio);
+          this.profile.bio = profile.bio;
+          console.log("Bio inside store", this.profile.bio);
+        }
         this.profile = { ...this.profile, ...(profile as IProfile) };
+
         this.loading = false;
       });
     } catch (error) {
@@ -136,6 +141,9 @@ export default class ProfileStore {
       runInAction(() => (this.loading = false));
     }
   };
+  // we are setting the Profile with the existing profile and overwriting any changes to the profile from
+  // the partial profile we are passing in as a parameter so we need to make use of the ‘as Profile’ to
+  // make TypeScript happy
 
   updateFollowing = async (userName: string, following: boolean) => {
     this.loading = true;

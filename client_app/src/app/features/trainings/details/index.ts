@@ -12,7 +12,7 @@ interface ButtonProps {
 
 const TrainingImage = styled.img`
   width: 100%;
-  filter: brightness(30%);
+  filter: brightness(40%);
 `;
 
 const CancelledLabel = styled.div`
@@ -148,8 +148,8 @@ const TrainingHeader = styled.h1`
 `;
 
 const ItemImage = styled.img`
-  width: 50px;
-  height: 50px;
+  width: calc(var(--index) * 3);
+  height: calc(var(--index) * 3);
   border-radius: 50%;
 `;
 

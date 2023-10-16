@@ -1,10 +1,10 @@
 import { ITraining } from "../../../models/training";
 import { useStore } from "../../../stores/store";
-import { LinkButton, LoaderWrapper } from ".";
 import { observer } from "mobx-react-lite";
-import ButtonWithLoader from "../../../components/UI_elements/button/Button";
 import Loader from "../../../components/loader/LoadingComponent";
 import TrainingDetailedImage from "./TrainingDetailedImage";
+import CustomButton from "../../../components/UI_elements/button/CustomButton";
+import { LoaderWrapper } from ".";
 
 interface Props {
   training: ITraining;
@@ -18,54 +18,55 @@ const TrainingDetailedHeader = ({ training }: Props) => {
   return (
     <>
       <TrainingDetailedImage training={training} />
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <span style={{ display: "flex", justifyContent: "space-between" }}>
         {training.isHost ? (
           <>
-            <ButtonWithLoader
-              isCancelled={training.isCancelled}
-              disabled={loading}
+            <CustomButton
+              color={training.isCancelled ? "green" : "red"}
+              content={
+                training.isCancelled
+                  ? "Re-activate Activity"
+                  : "Cancel Activity"
+              }
+              loading={loading}
               onClick={cancelTrainingToggle}
-              titleStart="Re-activate training"
-              titleEnd="Cancel training"
             >
               {loading && (
                 <LoaderWrapper>
                   <Loader />
                 </LoaderWrapper>
               )}
-            </ButtonWithLoader>{" "}
-            <LinkButton to={`/manage/${training.id}`}>Manage Event</LinkButton>
+            </CustomButton>
+            <CustomButton
+              disabled={training.isCancelled}
+              to={`/manage/${training.id}`}
+              color="orange"
+              content={"Manage Event"}
+            ></CustomButton>
           </>
         ) : training.isGoing ? (
-          <ButtonWithLoader
-            onClick={cancelTrainingToggle}
-            disabled={loading}
-            isCancelled={training.isCancelled}
-            titleStart="Join training"
-            titleEnd="Cancel attendance"
-          >
-            {loading && (
-              <LoaderWrapper>
-                <Loader />
-              </LoaderWrapper>
-            )}
-          </ButtonWithLoader>
-        ) : (
-          <ButtonWithLoader
+          <CustomButton
             onClick={updateAttendance}
-            disabled={loading}
-            isCancelled={!training.isGoing}
-            titleStart="Join training"
-            titleEnd="Cancel attendance"
+            loading={loading}
+            color={"red"}
+            content={"Cancel attendance"}
           >
             {loading && (
               <LoaderWrapper>
                 <Loader />
               </LoaderWrapper>
             )}
-          </ButtonWithLoader>
+          </CustomButton>
+        ) : (
+          <CustomButton
+            onClick={updateAttendance}
+            disabled={training.isCancelled}
+            color={"green"}
+            loading={loading}
+            content={"Join Training"}
+          />
         )}
-      </div>
+      </span>
     </>
   );
 };

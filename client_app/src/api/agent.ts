@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { router } from "../app/layout/router/Routes";
 import { PaginatedResult } from "../app/models/pagination";
-import { IUserTraining, Profile } from "../app/models/profile";
+import { IProfile, IUserTraining, Profile } from "../app/models/profile";
 import { IUser, IUserFormValues } from "../app/models/user";
 import { store } from "../app/stores/store";
 import { ITraining, TrainingFormValues } from "../app/models/training";
@@ -150,13 +150,13 @@ const Profiles = {
   setMainPhoto: (id: string) => requests.post(`/photos/${id}/setMain`, {}),
   deletePhoto: (id: string) => requests.del(`/photos/${id}`),
   //Partial<Profile> as we are only allowing the user to update 2 of the properties contained in the Profile type.
-  updateProfile: (profile: Partial<Profile>) =>
+  updateProfile: (profile: Partial<IProfile>) =>
     requests.put(`/profiles`, profile),
   updateFollowing: (userName: string) =>
     requests.post(`/follow/${userName}`, {}),
   listFollowings: (userName: string, predicate: string) =>
     requests.get<Profile[]>(`/follow/${userName}?predicate=${predicate}`),
-  listtrainings: (userName: string, predicate: string) =>
+  listTrainings: (userName: string, predicate: string) =>
     requests.get<IUserTraining[]>(
       `/profiles/${userName}/trainings?predicate=${predicate}`
     ),

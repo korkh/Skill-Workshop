@@ -27,6 +27,7 @@
     "@types/react-datepicker": "^4.15.1",
     "@types/react-dom": "^18.2.10",
     "@types/react-infinite-scroller": "^1.2.3",
+    "@types/semantic-ui": "^2.2.7",
     "@types/yup": "^0.32.0",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",

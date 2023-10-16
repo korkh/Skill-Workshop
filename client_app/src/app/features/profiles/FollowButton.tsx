@@ -1,7 +1,12 @@
 import { observer } from "mobx-react-lite";
-import { Button, Reveal } from "semantic-ui-react";
 import { useStore } from "../../stores/store";
 import { IProfile } from "../../models/profile";
+import {
+  CustomFollowButton,
+  CustomFollowHiddenButton,
+  FollowButtonWrapper,
+} from ".";
+import Loader from "../../components/loader/LoadingComponent";
 interface Props {
   profile: IProfile;
 }
@@ -23,25 +28,17 @@ const FollowButton = ({ profile }: Props) => {
   }
 
   return (
-    <Reveal animated="move">
-      <Reveal.Content visible style={{ width: "100%" }}>
-        <Button
-          fluid
-          color="teal"
-          content={profile.following ? "Following" : "Not following"}
-        />
-      </Reveal.Content>
-      <Reveal.Content hidden style={{ width: "100%" }}>
-        <Button
-          basic
-          fluid
-          color={profile.following ? "red" : "green"}
-          content={profile.following ? "Unfollow" : "Follow"}
-          loading={loading}
-          onClick={(e) => handleFollow(e, profile.userName)}
-        />
-      </Reveal.Content>
-    </Reveal>
+    <FollowButtonWrapper>
+      <CustomFollowButton onClick={(e) => handleFollow(e, profile.userName)}>
+        {profile.following ? "Following" : "Not following"}
+      </CustomFollowButton>
+      <CustomFollowHiddenButton
+        $following={profile.following}
+        onClick={(e) => handleFollow(e, profile.userName)}
+      >
+        {loading ? <Loader /> : profile.following ? "Unfollow" : "Follow"}
+      </CustomFollowHiddenButton>
+    </FollowButtonWrapper>
   );
 };
 

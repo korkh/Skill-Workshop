@@ -1,4 +1,3 @@
-import { Tab } from "semantic-ui-react";
 import { IProfile } from "../../models/profile";
 import { useStore } from "../../stores/store";
 import ProfileAbout from "./ProfileAbout";
@@ -6,32 +5,39 @@ import ProfileTrainings from "./ProfileTrainings";
 import ProfileFollowings from "./ProfileFollowings";
 import { observer } from "mobx-react-lite";
 import ProfilePhotos from "./ProfilePhotos";
+import { TabContainer, TabContent, TabItem, Tabs } from ".";
 
 interface Props {
   profile: IProfile;
 }
 const ProfileContent = ({ profile }: Props) => {
   const { profileStore } = useStore();
-  const panes = [
-    { menuItem: "About", render: () => <ProfileAbout /> },
-    { menuItem: "Photos", render: () => <ProfilePhotos profile={profile} /> },
-    { menuItem: "Events", render: () => <ProfileTrainings /> },
-    {
-      menuItem: "Followers",
-      render: () => <ProfileFollowings />,
-    },
-    {
-      menuItem: "Following",
-      render: () => <ProfileFollowings />,
-    },
+  const activeTabIndex: number | string = profileStore.activeTab || 0;
+  const tabs = [
+    { label: "About", content: <ProfileAbout /> },
+    { label: "Photos", content: <ProfilePhotos profile={profile} /> },
+    { label: "Events", content: <ProfileTrainings /> },
+    { label: "Followers", content: <ProfileFollowings /> },
+    { label: "Following", content: <ProfileFollowings /> },
   ];
+
   return (
-    <Tab
-      menu={{ fluid: true, vertical: true }}
-      menuPosition="right"
-      panes={panes}
-      onTabChange={(_, data) => profileStore.setActiveTab(data.activeIndex)}
-    />
+    <>
+      <TabContainer>
+        <Tabs>
+          {tabs.map((tab, index) => (
+            <TabItem
+              key={index}
+              $active={index === activeTabIndex}
+              onClick={() => profileStore.setActiveTab(index)}
+            >
+              {tab.label}
+            </TabItem>
+          ))}
+        </Tabs>
+      </TabContainer>
+      <TabContent>{tabs[activeTabIndex].content}</TabContent>
+    </>
   );
 };
 

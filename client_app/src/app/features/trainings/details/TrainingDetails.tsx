@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import TrainingDetailedHeader from "./TrainingDetailedHeader";
-import LoadingComponent from "../../../components/loader/LoadingComponent";
+import Loader from "../../../components/loader/LoadingComponent";
 import { useStore } from "../../../stores/store";
 import TrainingDetailedChat from "./TrainingDetailedChat";
 import TrainingDetailedInfo from "./TrainingDetailedInfo";
@@ -25,7 +25,7 @@ const TrainingDetails = () => {
     return () => clearSelectedTraining();
   }, [clearSelectedTraining, id, loadTraining]);
 
-  if (loadingInitial || !training) return <LoadingComponent />;
+  if (loadingInitial || !training) return <Loader $zoom={2} />;
 
   return (
     <TrainingDetailsContainer>

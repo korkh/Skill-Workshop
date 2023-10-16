@@ -21,7 +21,7 @@ const TrainingDetailedInfo = ({ training }: Props) => {
           <MyIcon className="large teal info icon" />
         </IconContainer>
         <InfoDescription>
-          <p>{training.description}</p>
+          <span>{training.description}</span>
         </InfoDescription>
       </InfoSegment>
       <InfoSegment>
@@ -29,7 +29,7 @@ const TrainingDetailedInfo = ({ training }: Props) => {
           <MyIcon className="large teal book icon" />
         </IconContainer>
         <InfoDescription>
-          <p>Category {training.category}</p>
+          <span>Category {training.category}</span>
         </InfoDescription>
       </InfoSegment>
       <InfoSegment>

@@ -17,9 +17,15 @@ interface Props {
   training: ITraining;
   titleAsLink?: boolean;
   image?: boolean;
+  children?: React.ReactNode;
 }
 
-const TrainingDetailedImage = ({ training, titleAsLink, image }: Props) => {
+const TrainingDetailedImage = ({
+  training,
+  titleAsLink,
+  image,
+  children,
+}: Props) => {
   return (
     <TrainingImageContainer>
       {training.isCancelled && <CancelledLabel>Cancelled</CancelledLabel>}
@@ -50,6 +56,7 @@ const TrainingDetailedImage = ({ training, titleAsLink, image }: Props) => {
           </p>
         </div>
       </TrainingImageText>
+      {children}
     </TrainingImageContainer>
   );
 };

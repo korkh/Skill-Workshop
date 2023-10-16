@@ -13,10 +13,12 @@ const ProfileEditForm = ({ setEditMode }: Props) => {
   const {
     profileStore: { profile, updateProfile },
   } = useStore();
-
   return (
     <Formik
-      initialValues={{ displayName: profile?.displayName, bio: profile?.bio }}
+      initialValues={{
+        displayName: profile?.displayName,
+        bio: profile?.bio || "",
+      }}
       onSubmit={(values) => {
         updateProfile(values).then(() => {
           setEditMode(false);

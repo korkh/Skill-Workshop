@@ -11,6 +11,7 @@ import {
   AttendeeName,
   FollowingLabel,
 } from ".";
+import { observer } from "mobx-react-lite";
 
 interface Props {
   training: ITraining;
@@ -51,4 +52,4 @@ const TrainingDetailedSidebar = ({ training: { attendees, host } }: Props) => {
   );
 };
 
-export default TrainingDetailedSidebar;
+export default observer(TrainingDetailedSidebar);

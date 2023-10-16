@@ -1,47 +1,37 @@
 import { observer } from "mobx-react-lite";
-import { List, Image, Popup, PopupContent } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 import { IProfile } from "../../../models/profile";
 import ProfileCard from "../../profiles/ProfileCard";
+import { ListWrapper, ListItemLink, UserImage, PopupContent, ListItem } from ".";
+import { useState } from "react";
 
 interface Props {
   attendees: IProfile[];
 }
 
 const TrainingListItemAttendee = ({ attendees }: Props) => {
-  const styles = {
-    borderColor: "orange",
-    borderWidth: 3,
-  };
+  
+  const [visiblePopup, setVisiblePopup] = useState<string | null>(null);
 
   return (
-    <List horizontal>
+    <ListWrapper>
       {attendees.map((attendee) => (
-        <Popup
-          hoverable
+        <ListItem
           key={attendee.userName}
-          trigger={
-            <List.Item
-              key={attendee.userName}
-              as={Link}
-              to={`/profiles/${attendee.userName}`}
-            >
-              <Image
-                size="mini"
-                circular
-                src={attendee.image || "/user.png"}
-                bordered
-                style={attendee.following ? styles : null}
-              />
-            </List.Item>
-          }
+          following={attendee.following}
+          onMouseEnter={() => setVisiblePopup(attendee.userName)}
+          onMouseLeave={() => setVisiblePopup(null)}
         >
-          <PopupContent>
-            <ProfileCard profile={attendee} />
-          </PopupContent>
-        </Popup>
+          <ListItemLink to={`/profiles/${attendee.userName}`}>
+            <UserImage src={attendee.image || "/user.png"} alt={attendee.userName} />
+          </ListItemLink>
+          {visiblePopup === attendee.userName && (
+            <PopupContent isVisible={true}>
+              <ProfileCard profile={attendee} />
+            </PopupContent>
+          )}
+        </ListItem>
       ))}
-    </List>
+    </ListWrapper>
   );
 };
 

@@ -16,7 +16,8 @@ namespace Storage
                     {
                         DisplayName = "Bob",
                         UserName = "bob",
-                        Email = "bob@test.com"
+                        Email = "bob@test.com",
+                        Bio = "Hello! My name is Bob!"
                     },
                     new AppUser
                     {

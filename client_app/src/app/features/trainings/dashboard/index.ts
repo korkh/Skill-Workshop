@@ -4,7 +4,7 @@ import styled from "styled-components";
 /** TrainingFilters */
 const FiltersContainer = styled.div`
   width: 100%;
-  margin: 23px 0 5px 0;
+  margin: 20px 0 5px 15px;
 `;
 
 const FiltersHeader = styled.div`
@@ -38,10 +38,20 @@ const DatePickerWrapper = styled.option`
 
 /** TrainingListItemPlaceholder */
 const PlaceholderContainer = styled.div`
-  background: #f0f0f0;
-  border-radius: 4px;
-  margin-top: 25px;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  background: transparent;
+  color: #fff;
   display: flex;
+  width: 40%;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(18px);
+  backdrop-filter: brightness(1.2);
 `;
 
 interface SegmentGroup {
@@ -51,7 +61,8 @@ interface SegmentGroup {
 }
 
 const SegmentGroup = styled.div<SegmentGroup>`
-  background-color: ${(props) => (props.$bgcolor ? props.$bgcolor : "#fff")};
+  background-color: ${(props) =>
+    props.$bgcolor ? props.$bgcolor : "transparent"};
   border: 1px solid ${(props) => (props.$bdrcolor ? props.$bdrcolor : "#ccc")};
   border-radius: 5px;
   padding: 0;
@@ -64,12 +75,15 @@ const SegmentGroup = styled.div<SegmentGroup>`
 
 interface SegmentProps {
   $reduced?: boolean;
+  $flexDirection?: string;
 }
 
 const Segment = styled.div<SegmentProps>`
   padding: 1em;
-  height: ${(props) => (props.$reduced ? "40px" : "135px")};
+  height: ${(props) => (props.$reduced ? "50px" : "auto")};
   border-bottom: ${(props) => (props.$reduced ? "none" : "1px solid #d4d4d5")};
+  flex-direction: ${(props) =>
+    props.$flexDirection ? props.$flexDirection : "row"};
   width: 100%;
 
   @media (max-width: 768px) {
@@ -124,7 +138,8 @@ const ItemUserName = styled(Link)<UserNameProps>`
 `;
 
 const ItemContent = styled.div`
-  flex: 1;
+  display: flex;
+  flex-direction: column;
   margin-left: 10px;
 `;
 
@@ -175,9 +190,84 @@ const ButtonLink = styled(Link)`
     background-color: lightgreen;
     color: #fff;
   }
+`; //end
+
+/** TrainingDashboard */
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 2.5vw;
+  padding-top: 3vh;
+`;
+
+const GridSidebar = styled.div`
+  grid-column: 1 / 2;
+`;
+
+const GridMainContent = styled.div`
+  grid-column: 2 / 3;
+`;
+
+const GridLoadingContainer = styled.div`
+  grid-column: 2 / 3;
+`; // TrainingDashboard
+
+/** TrainingListItemAttendee */
+const ListWrapper = styled.ul`
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const ListItem = styled.li<{ following: boolean }>`
+  position: relative;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border: ${({ following }) => (following ? "3px solid orange" : "none")};
+  border-radius: 50%; /* Make it a circle */
+`;
+
+const UserImage = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+`;
+
+const PopupContent = styled.div<{ isVisible: boolean }>`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  display: ${({ isVisible }) => (isVisible ? "block" : "none")};
+`;
+
+const ListItemLink = styled(Link)`
+  text-decoration: none;
+`; // TrainingListItemAttendee
+
+const TrainingListHeader = styled.h3`
+  text-align: left;
+  margin-bottom: 5px;
+  color: teal;
 `;
 
 export {
+  TrainingListHeader,
+  PopupContent,
+  ListItemLink,
+  ListWrapper,
+  ListItem,
+  UserImage,
+  GridContainer,
+  GridSidebar,
+  GridMainContent,
+  GridLoadingContainer,
   IconContainer,
   SegmentDescription,
   ButtonLink,

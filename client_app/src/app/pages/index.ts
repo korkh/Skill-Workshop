@@ -61,7 +61,7 @@ const LayersItem = styled.div`
   }
 
   &.layer-2 {
-    transform: translateZ(-50px) scale(0.75);
+    transform: translateZ(-50px) scale(0.9);
     filter: blur(2px);
   }
 
@@ -71,11 +71,11 @@ const LayersItem = styled.div`
   }
 
   &.layer-4 {
-    transform: translateZ(20px) scale(1.2);
+    transform: translateZ(-30px) scale(1);
   }
 
   &.layer-5 {
-    transform: translateZ(40px) scale(0.9);
+    transform: translateZ(250px) scale(0.95);
   }
 `;
 
@@ -101,7 +101,7 @@ const HeroContent = styled.div`
   }
 
   /* Frosted Glass Effect */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);

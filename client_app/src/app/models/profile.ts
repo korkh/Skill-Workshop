@@ -17,6 +17,7 @@ export class Profile implements IProfile {
     this.userName = user.userName;
     this.displayName = user.displayName;
     this.image = user.image;
+    this.bio = "";
   }
   userName: string;
   displayName: string;
