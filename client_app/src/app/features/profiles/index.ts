@@ -5,7 +5,7 @@ import styled from "styled-components";
 const CardWrapper = styled(Link)`
   width: calc(var(--index) * 8);
   border: 1px solid #ccc;
-  margin: 0 10px;
+  margin: 5px 10px;
   border-radius: 8px;
   padding: 5px;
   background-color: #fff;
@@ -24,7 +24,7 @@ const CardImage = styled.img`
 `;
 
 const CardHeader = styled.h3`
-  font-size: 2rem;
+  font-size: 1.5em;
   margin: 5px 0;
   text-align: center;
   justify-items: center;
@@ -40,6 +40,7 @@ const CardFooter = styled.div`
   display: flex;
   align-items: center;
   margin: 10px 0;
+  color: grey;
 `; // Profile Card
 
 /** Follow Button */
@@ -48,7 +49,7 @@ interface FollowButtonProps {
 }
 const CustomFollowButton = styled.button<FollowButtonProps>`
   width: 100%;
-  padding: 10px;
+  padding: 0.3rem 0;
   background-color: teal;
   color: white;
   border: none;
@@ -153,10 +154,35 @@ const Tabs = styled.div`
 const TabItem = styled.div<{ $active: boolean }>`
   padding: 10px 20px;
   cursor: pointer;
-  border-bottom: ${(props) => (props.$active ? "2px solid #007BFF" : "none")};
+  border-bottom: ${(props) => (props.$active ? "2px solid teal" : "none")};
+  font-weight: ${(props) => (props.$active ? "bold" : "none")};
 `; //PRofile Content
 
+/** Tab Followings  */
+const PaneContainer = styled.div`
+  background-color: #fff;
+  border: 1px solid #d4d4d5;
+  border-radius: 0.28571429rem;
+  padding: 1em;
+`;
+
+const PaneHeader = styled.h2`
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  margin-left: 0.6em;
+`;
+
+const PaneCardGroup = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5em;
+  gap: 0.2em;
+`;
+
 export {
+  PaneContainer,
+  PaneHeader,
+  PaneCardGroup,
   TabContainer,
   TabContent,
   Tabs,

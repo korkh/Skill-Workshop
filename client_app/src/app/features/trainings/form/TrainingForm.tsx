@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Button, Header, Segment, TextArea } from "semantic-ui-react";
+import { Button, Header, Segment } from "semantic-ui-react";
 import * as Yup from "yup";
 import { categoryOptions } from "../../../components/common/options/CategoryOptions";
 import Loader from "../../../components/loader/LoadingComponent";
@@ -11,6 +11,7 @@ import { useStore } from "../../../stores/store";
 import DateInput from "../../../components/common/form/DateInput";
 import SelectInput from "../../../components/common/form/SelectInput";
 import TextInput from "../../../components/common/form/TextInput";
+import TextArea from "../../../components/common/form/TextArea";
 
 const TrainingForm = () => {
   const { trainingStore } = useStore();
@@ -59,7 +60,6 @@ const TrainingForm = () => {
 
   return (
     <Segment clearing>
-      <Header content="Training Details" sub color="teal" />
       <Formik
         validationSchema={validationSchema}
         enableReinitialize //get Activity updated after value is changed
@@ -68,6 +68,7 @@ const TrainingForm = () => {
       >
         {({ handleSubmit, isValid, isSubmitting, dirty }) => (
           <Form className="ui form" onSubmit={handleSubmit} autoComplete="off">
+            <Header content="Training Details" sub color="teal" />
             <TextInput name="title" placeholder="Title" />
             <TextArea rows={3} placeholder="Description" name="description" />
             <SelectInput

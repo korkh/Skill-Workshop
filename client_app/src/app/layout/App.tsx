@@ -2,13 +2,14 @@ import { observer } from "mobx-react-lite";
 import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
-import ModalContainer from "../components/common/modals/ModalContainer";
+import CustomModal from "../components/common/modals/CustomModal";
 import NavBar from "./navbar/NavBar";
 import { useStore } from "../stores/store";
 import MainPage from "../pages/MainPage";
 import AppContainer from ".";
 import "semantic-ui-css/semantic.min.css";
 import "react-date-picker/dist/DatePicker.css";
+import "react-datepicker/dist/react-datepicker.css";
 import "react-calendar/dist/Calendar.css";
 import Loader from "../components/loader/LoadingComponent";
 
@@ -30,7 +31,7 @@ function App() {
   return (
     <>
       <ScrollRestoration />
-      <ModalContainer />
+      <CustomModal />
       <ToastContainer position="bottom-right" hideProgressBar theme="colored" />
       {location.pathname === "/" ? (
         <MainPage />

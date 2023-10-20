@@ -1,8 +1,10 @@
 import { ErrorMessage, Form, Formik } from "formik";
-import { Button, Header, Label } from "semantic-ui-react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../../stores/store";
-import TextInput from "../../components/common/form/TextInput";
+import { LoginButton, LoginErrorLabel, LoginFormWrapper, LoginHeader } from ".";
+import LoginInput from "../../components/common/form/TextInput";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 function LoginForm() {
   const { userStore } = useStore();
@@ -17,34 +19,39 @@ function LoginForm() {
       }
     >
       {({ handleSubmit, isSubmitting, errors }) => (
-        <Form className="ui form" onSubmit={handleSubmit} autoComplete="off">
-          <Header
-            as="h2"
-            content="Login to ActiviGo"
-            color="teal"
-            textAlign="center"
-          />
-          <TextInput placeholder="Email" name="email" />
-          <TextInput placeholder="Password" name="password" type="password" />
-          <ErrorMessage
-            name="error"
-            render={() => (
-              <Label
-                style={{ marginBottom: 10 }}
-                basic
-                color="red"
-                content={errors.error}
-              />
-            )}
-          />
-          <Button
-            loading={isSubmitting}
-            positive
-            content="Login"
-            type="submit"
-            fluid
-          />
-        </Form>
+        <LoginFormWrapper>
+          <LoginHeader>Login to Skill Workshop</LoginHeader>
+          <Form onSubmit={handleSubmit} autoComplete="off">
+            <LoginInput
+              placeholder="Email"
+              name="email"
+              style={{ width: "100%" }}
+            />
+            <br />
+            <LoginInput
+              placeholder="Password"
+              name="password"
+              type="password"
+              style={{ width: "100%" }}
+            />
+            <br />
+            <ErrorMessage
+              name="error"
+              render={() => (
+                <div style={{ marginBottom: "10px", textAlign: "left" }}>
+                  <LoginErrorLabel>
+                    <FontAwesomeIcon icon={faTriangleExclamation} color="red" />{" "}
+                    {errors.error}
+                  </LoginErrorLabel>
+                </div>
+              )}
+            />
+            <br />
+            <LoginButton disabled={isSubmitting} type="submit">
+              {isSubmitting ? "Logging in..." : "Login"}
+            </LoginButton>
+          </Form>
+        </LoginFormWrapper>
       )}
     </Formik>
   );

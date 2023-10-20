@@ -35,7 +35,7 @@ const RegistrationForm = () => {
         >
           <Header
             as="h2"
-            content="Sign up to Reactivities"
+            content="Sign up to Skill Workshop"
             color="teal"
             textAlign="center"
           />

@@ -3,6 +3,6 @@ export const categoryOptions = [
     { text: "Lectures", value: "lectures" },
     { text: "Webinars", value: "webinars" },
     { text: "Courses", value: "courses" },
-    { text: "Bootcamps", value: "Bootcamps" },
+    { text: "Bootcamps", value: "bootcamps" },
   ];
   

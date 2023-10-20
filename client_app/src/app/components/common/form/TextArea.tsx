@@ -1,5 +1,5 @@
 import { useField } from "formik";
-import { Form, Label } from "semantic-ui-react";
+import ErrorLabel from "./ErrorLabel";
 
 interface Props {
   placeholder: string;
@@ -12,20 +12,21 @@ const TextArea = (props: Props) => {
   const [field, meta] = useField(props.name);
 
   return (
-    <Form.Field error={meta.touched && !!meta.error}>
-      <label>{props.label}</label>
+    <>
+      {props.label && <label htmlFor={props.name}>{props.label}</label>}
       <textarea
-        {...field}
-        {...props}
-        value=""
-        placeholder="Please enter bio here"
+        id={props.name}
+        name={props.name}
+        rows={props.rows}
+        placeholder={props.placeholder}
+        value={field.value}
+        onChange={field.onChange}
+        onBlur={field.onBlur}
       ></textarea>
       {meta.touched && meta.error ? (
-        <Label basic color="red">
-          {meta.error}
-        </Label>
+        <ErrorLabel styles={{marginTop: 5}} >{meta.error}</ErrorLabel>
       ) : null}
-    </Form.Field>
+    </>
   );
 };
 

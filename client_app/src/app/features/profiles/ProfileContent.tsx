@@ -16,7 +16,7 @@ const ProfileContent = ({ profile }: Props) => {
   const tabs = [
     { label: "About", content: <ProfileAbout /> },
     { label: "Photos", content: <ProfilePhotos profile={profile} /> },
-    { label: "Events", content: <ProfileTrainings /> },
+    { label: "Trainings", content: <ProfileTrainings /> },
     { label: "Followers", content: <ProfileFollowings /> },
     { label: "Following", content: <ProfileFollowings /> },
   ];

@@ -128,9 +128,7 @@ export default class ProfileStore {
           store.userStore.setDisplayName(profile.displayName);
         }
         if (profile.bio && this.profile) {
-          console.log("Bio inside store as new bio", profile.bio);
           this.profile.bio = profile.bio;
-          console.log("Bio inside store", this.profile.bio);
         }
         this.profile = { ...this.profile, ...(profile as IProfile) };
 
