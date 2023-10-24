@@ -1,4 +1,6 @@
 # Skill-Workshop
+Skill WORKSHOP: A platform that aims to solve the skills puzzle together by connecting learners, educators, and employers.
+
 ..readme will be updated soon.
 
 aplication still in development, but can be tested with default login settings:
