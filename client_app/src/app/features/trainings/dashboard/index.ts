@@ -221,12 +221,12 @@ const ListWrapper = styled.ul`
   margin: 0;
 `;
 
-const ListItem = styled.li<{ following: boolean }>`
+const ListItem = styled.li<{ $following: boolean }>`
   position: relative;
   margin-right: 10px;
   width: 40px;
   height: 40px;
-  border: ${({ following }) => (following ? "3px solid orange" : "none")};
+  border: ${({ $following }) => ($following ? "3px solid orange" : "none")};
   border-radius: 50%; /* Make it a circle */
 `;
 
@@ -236,7 +236,7 @@ const UserImage = styled.img`
   border-radius: 50%;
 `;
 
-const PopupContent = styled.div<{ isVisible: boolean }>`
+const PopupContent = styled.div<{ $isVisible: boolean }>`
   position: absolute;
   bottom: 0;
   right: 0;
@@ -244,7 +244,7 @@ const PopupContent = styled.div<{ isVisible: boolean }>`
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 4px;
-  display: ${({ isVisible }) => (isVisible ? "block" : "none")};
+  display: ${({ $isVisible }) => ($isVisible ? "block" : "none")};
 `;
 
 const ListItemLink = styled(Link)`

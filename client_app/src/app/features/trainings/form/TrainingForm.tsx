@@ -1,37 +1,35 @@
 import { Form, Formik } from "formik";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Button, Header, Segment } from "semantic-ui-react";
+import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
-import { categoryOptions } from "../../../components/common/options/CategoryOptions";
 import Loader from "../../../components/loader/LoadingComponent";
 import { TrainingFormValues } from "../../../models/training";
 import { useStore } from "../../../stores/store";
-import DateInput from "../../../components/common/form/DateInput";
-import SelectInput from "../../../components/common/form/SelectInput";
+import { CancelButton, FormHeader, SubmitButton, Wrapper } from ".";
 import TextInput from "../../../components/common/form/TextInput";
 import TextArea from "../../../components/common/form/TextArea";
+import SelectInput from "../../../components/common/form/SelectInput";
+import DateInput from "../../../components/common/form/DateInput";
+import { categoryOptions } from "../../../components/common/options/CategoryOptions";
+import { ButtonContainer } from ".";
 
-const TrainingForm = () => {
+const TrainingForm = observer(() => {
   const { trainingStore } = useStore();
   const { createTraining, updateTraining, loadTraining, loadingInitial } =
     trainingStore;
-
-  const { id } = useParams();
-
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const [training, setTraining] = useState<TrainingFormValues>(
     new TrainingFormValues()
   );
 
-  //Validation schema
   const validationSchema = Yup.object({
-    title: Yup.string().required("The training title is required"),
-    description: Yup.string().required("The training description is required"),
-    category: Yup.string().required(),
-    date: Yup.string().required("Date is required"),
+    title: Yup.string().required("The event title is required"),
+    category: Yup.string().required("The event category is required"),
+    description: Yup.string().required(),
+    date: Yup.string().required("Date is required").nullable(),
     venue: Yup.string().required(),
     city: Yup.string().required(),
   });
@@ -39,16 +37,20 @@ const TrainingForm = () => {
   useEffect(() => {
     if (id)
       loadTraining(id).then((training) =>
-        setTraining(new TrainingFormValues(training)!)
+        setTraining(new TrainingFormValues(training))
       );
   }, [id, loadTraining]);
 
   function handleFormSubmit(training: TrainingFormValues) {
     if (!training.id) {
-      training.id = crypto.randomUUID();
-      createTraining(training).then(() =>
-        navigate(`/trainings/${training.id}`)
-      );
+      const newTraining = {
+        ...training,
+        id: crypto.randomUUID(),
+      };
+      console.log(newTraining);
+      createTraining(newTraining).then(() => {
+        navigate(`/trainings/${newTraining.id}`);
+      });
     } else {
       updateTraining(training).then(() =>
         navigate(`/trainings/${training.id}`)
@@ -59,55 +61,47 @@ const TrainingForm = () => {
   if (loadingInitial) return <Loader $zoom={2} />;
 
   return (
-    <Segment clearing>
+    <Wrapper>
+      <FormHeader>TRAINING DETAILS</FormHeader>
       <Formik
+        enableReinitialize
         validationSchema={validationSchema}
-        enableReinitialize //get Activity updated after value is changed
         initialValues={training}
         onSubmit={(values) => handleFormSubmit(values)}
       >
         {({ handleSubmit, isValid, isSubmitting, dirty }) => (
           <Form className="ui form" onSubmit={handleSubmit} autoComplete="off">
-            <Header content="Training Details" sub color="teal" />
             <TextInput name="title" placeholder="Title" />
-            <TextArea rows={3} placeholder="Description" name="description" />
+            <TextArea rows={3} name="description" placeholder="Description" />
             <SelectInput
-              placeholder="Category"
-              name="category"
               options={categoryOptions}
+              name="category"
+              placeholder="Category"
             />
             <DateInput
-              placeholderText="Date"
               name="date"
+              placeholderText="Date"
               showTimeSelect
-              timeFormat="HH:mm"
-              timeIntervals={15}
-              timeCaption="Time"
-              dateFormat="d MMMM yyyy HH:mm"
+              timeCaption="time"
+              dateFormat="MMMM d, yyyy HH:mm"
             />
-            <Header content="Location Details" sub color="teal" />
-            <TextInput placeholder="City" name="city" />
-            <TextInput placeholder="Venue" name="venue" />
-            <Button
-              disabled={isSubmitting || !dirty || !isValid}
-              loading={isSubmitting}
-              floated="right"
-              positive
-              type="submit"
-              content="Submit"
-            />
-            <Button
-              as={Link}
-              to={`/trainings/${training.id}`}
-              floated="right"
-              type="button"
-              content="Cancel"
-            />
+            <FormHeader>LOCATION DETAILS</FormHeader>
+            <TextInput name="venue" placeholder="Venue" />
+            <TextInput name="city" placeholder="city" />
+            <ButtonContainer>
+              <SubmitButton
+                disabled={isSubmitting || !dirty || !isValid}
+                type="submit"
+              >
+                Submit
+              </SubmitButton>
+              <CancelButton to="/trainings">Cancel</CancelButton>
+            </ButtonContainer>
           </Form>
         )}
       </Formik>
-    </Segment>
+    </Wrapper>
   );
-};
+});
 
-export default observer(TrainingForm);
+export default TrainingForm;

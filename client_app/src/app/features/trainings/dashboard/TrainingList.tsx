@@ -4,7 +4,7 @@ import { useStore } from "../../../stores/store";
 import TrainingListItem from "./TrainingListItem";
 import { TrainingListHeader } from ".";
 
-const TrainingList = () => {
+const TrainingList = observer(() => {
   const { trainingStore } = useStore();
   const { groupedTrainings } = trainingStore;
 
@@ -14,9 +14,7 @@ const TrainingList = () => {
         <>
           {groupedTrainings.map(([group, trainings]) => (
             <Fragment key={group}>
-              <TrainingListHeader>
-                {group}
-              </TrainingListHeader>
+              <TrainingListHeader>{group}</TrainingListHeader>
               {trainings.map((training) => (
                 <TrainingListItem training={training} key={training.id} />
               ))}
@@ -28,6 +26,6 @@ const TrainingList = () => {
       )}
     </>
   );
-};
+});
 
-export default observer(TrainingList);
+export default TrainingList;

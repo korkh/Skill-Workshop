@@ -24,7 +24,7 @@ const panes = [
   { menuItem: "Hosting", pane: { key: "hosting" } },
 ];
 
-const ProfileTrainings = () => {
+const ProfileTrainings = observer(() => {
   const { profileStore } = useStore();
   const { loadUserTrainings, profile, loadingTrainings, userTrainings } =
     profileStore;
@@ -77,6 +77,6 @@ const ProfileTrainings = () => {
       </PaneCardGroup>
     </PaneContainer>
   );
-};
+});
 
-export default observer(ProfileTrainings);
+export default ProfileTrainings;

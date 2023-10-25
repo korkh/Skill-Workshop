@@ -1,9 +1,12 @@
 import { toast } from "react-toastify";
-import { Button, Header, Icon, Segment } from "semantic-ui-react";
 import agent from "../../../api/agent";
 import useQuery from "../../hooks/hooks";
+import { observer } from "mobx-react-lite";
+import { Header, IconLabel, StyledSegment, SubmitButton } from ".";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
-const RegistrationSuccess = () => {
+const RegistrationSuccess = observer(() => {
   const email = useQuery().get("email") as string;
 
   function handleConfirmEmailResend() {
@@ -15,10 +18,10 @@ const RegistrationSuccess = () => {
   }
 
   return (
-    <Segment placeholder textAlign="center">
-      <Header icon color="green">
-        <Icon name="check" />
-        Successfully registered!
+    <StyledSegment>
+      <Header>
+        <FontAwesomeIcon icon={faCheck} size="2xl" color="green" />
+        <IconLabel>Successfully registered!</IconLabel>
       </Header>
       <p>
         Please check your email (including junk email) for the verification
@@ -27,16 +30,13 @@ const RegistrationSuccess = () => {
       {email && (
         <>
           <p>Didn't receive the email? Click the below button to resend</p>
-          <Button
-            primary
-            onClick={handleConfirmEmailResend}
-            content="Resend email"
-            size="huge"
-          />
+          <SubmitButton $primary onClick={handleConfirmEmailResend}>
+            Resend email
+          </SubmitButton>
         </>
       )}
-    </Segment>
+    </StyledSegment>
   );
-};
+});
 
 export default RegistrationSuccess;

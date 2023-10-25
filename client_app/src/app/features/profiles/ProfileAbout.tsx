@@ -4,7 +4,7 @@ import { Button, Grid, Header, TabPane } from "semantic-ui-react";
 import { useStore } from "../../stores/store";
 import ProfileEditForm from "./ProfileEditForm";
 
-const ProfileAbout = () => {
+const ProfileAbout = observer(() => {
   const [editMode, setEditMode] = useState(false);
   const { profileStore } = useStore();
   const { isCurrentUser, profile } = profileStore;
@@ -39,6 +39,6 @@ const ProfileAbout = () => {
       </Grid>
     </TabPane>
   );
-};
+});
 
-export default observer(ProfileAbout);
+export default ProfileAbout;

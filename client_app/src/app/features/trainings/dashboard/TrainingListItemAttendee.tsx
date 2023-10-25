@@ -8,7 +8,7 @@ interface Props {
   attendees: IProfile[];
 }
 
-const TrainingListItemAttendee = ({ attendees }: Props) => {
+const TrainingListItemAttendee = observer(({ attendees }: Props) => {
   
   const [visiblePopup, setVisiblePopup] = useState<string | null>(null);
 
@@ -17,7 +17,7 @@ const TrainingListItemAttendee = ({ attendees }: Props) => {
       {attendees.map((attendee) => (
         <ListItem
           key={attendee.userName}
-          following={attendee.following}
+          $following={attendee.following}
           onMouseEnter={() => setVisiblePopup(attendee.userName)}
           onMouseLeave={() => setVisiblePopup(null)}
         >
@@ -25,7 +25,7 @@ const TrainingListItemAttendee = ({ attendees }: Props) => {
             <UserImage src={attendee.image || "/user.png"} alt={attendee.userName} />
           </ListItemLink>
           {visiblePopup === attendee.userName && (
-            <PopupContent isVisible={true}>
+            <PopupContent $isVisible={true}>
               <ProfileCard profile={attendee} />
             </PopupContent>
           )}
@@ -33,6 +33,6 @@ const TrainingListItemAttendee = ({ attendees }: Props) => {
       ))}
     </ListWrapper>
   );
-};
+});
 
-export default observer(TrainingListItemAttendee);
+export default TrainingListItemAttendee;

@@ -6,6 +6,7 @@ interface Props {
   name: string;
   rows: number;
   label?: string;
+  styles?: React.CSSProperties;
 }
 
 const TextArea = (props: Props) => {
@@ -15,16 +16,15 @@ const TextArea = (props: Props) => {
     <>
       {props.label && <label htmlFor={props.name}>{props.label}</label>}
       <textarea
-        id={props.name}
-        name={props.name}
-        rows={props.rows}
-        placeholder={props.placeholder}
-        value={field.value}
-        onChange={field.onChange}
-        onBlur={field.onBlur}
+        autoComplete="off"
+        {...props}
+        {...field}
+        style={{
+          ...props.styles,
+        }}
       ></textarea>
       {meta.touched && meta.error ? (
-        <ErrorLabel styles={{marginTop: 5}} >{meta.error}</ErrorLabel>
+        <ErrorLabel styles={{ marginTop: 5 }}>{meta.error}</ErrorLabel>
       ) : null}
     </>
   );

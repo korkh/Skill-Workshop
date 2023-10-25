@@ -6,7 +6,7 @@ import ProfileContent from "../features/profiles/ProfileContent";
 import ProfileHeader from "../features/profiles/ProfileHeader";
 import { useStore } from "../stores/store";
 
-const ProfilePage = () => {
+const ProfilePage = observer(() => {
   const { username } = useParams<{ username: string }>();
   const { profileStore } = useStore();
   const { loadingProfile, loadProfile, profile, setActiveTab } = profileStore;
@@ -30,6 +30,6 @@ const ProfilePage = () => {
       )}
     </>
   );
-};
+});
 
-export default observer(ProfilePage);
+export default ProfilePage;

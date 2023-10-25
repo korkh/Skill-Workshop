@@ -13,7 +13,7 @@ interface Props {
   training: ITraining;
 }
 
-const TrainingDetailedInfo = ({ training }: Props) => {
+const TrainingDetailedInfo = observer(({ training }: Props) => {
   return (
     <InfoContainer>
       <InfoSegment>
@@ -52,6 +52,6 @@ const TrainingDetailedInfo = ({ training }: Props) => {
       </InfoSegment>
     </InfoContainer>
   );
-};
+});
 
-export default observer(TrainingDetailedInfo);
+export default TrainingDetailedInfo;

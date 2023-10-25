@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import {
-  Button,
-  Header,
-  Icon,
-  Segment,
-  SegmentInline,
-} from "semantic-ui-react";
 import agent from "../../api/agent";
 import useQuery from "../hooks/hooks";
 import { useStore } from "../stores/store";
 import LoginForm from "../features/users/LoginForm";
+import { Header, IconLabel, StyledSegment, SubmitButton } from ".";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const ConfirmEmailPage = () => {
   const { modalStore } = useStore();
@@ -51,40 +47,39 @@ const ConfirmEmailPage = () => {
         return (
           <div>
             <p>Verification failed. Try to resend verification email!</p>
-            <Button
-              primary
-              onClick={handleConfirmEmailResend}
-              size="huge"
-              content="Resend email"
-            />
+            <SubmitButton $primary onClick={handleConfirmEmailResend}>
+              Resend email
+            </SubmitButton>
           </div>
         );
       case Status.Success:
         return (
           <div>
             <p>Email has been verified - you can login now</p>
-            <Button
-              primary
+            <SubmitButton
+              $primary
               onClick={() => modalStore.openModal(<LoginForm />)}
-              size="huge"
-              content="Login"
-            />
+            >
+              Login
+            </SubmitButton>
           </div>
         );
     }
   }
 
   return (
-    <Segment placeholder textAlign="center">
-      <Header icon>
-        <Icon
-          name="envelope"
-          content="Email verification"
+    <StyledSegment>
+      <Header>
+        <FontAwesomeIcon
+          icon={faEnvelope}
+          beatFade
+          size="2xl"
           color={Status.Success ? "green" : "grey"}
         />
-        <SegmentInline>{getBody()}</SegmentInline>
+        <IconLabel>Email verification</IconLabel>
+        {getBody()}
       </Header>
-    </Segment>
+    </StyledSegment>
   );
 };
 

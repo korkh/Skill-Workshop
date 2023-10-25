@@ -9,9 +9,9 @@ const Button = styled.button`
   letter-spacing: -0.02vw;
   padding: calc(var(--index) * 0.3) calc(var(--index) * 0.7);
   background-color: transparent;
-  color: #fff;
+  color: black;
   border-radius: 10em;
-  border: rgba(255, 255, 255, 0.5) 3px solid;
+  border: rgba(0, 0, 0, 0.5) 3px solid;
   outline: none;
   margin: calc(var(--index) * 2.5) calc(var(--index) * 0.9);
   cursor: pointer !important;
@@ -86,7 +86,7 @@ const HeroContent = styled.div`
   letter-spacing: calc(var(--index) * 0.15);
   line-height: 1.35em;
   margin-top: calc(var(--index) * 2);
-  color: #fff;
+  color: black;
 
   & span {
     display: block;
@@ -101,10 +101,10 @@ const HeroContent = styled.div`
   }
 
   /* Frosted Glass Effect */
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(241, 248, 250, 0.9);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(15px);
   backdrop-filter: brightness(1.2);
 `;
@@ -125,7 +125,68 @@ const MyNavLink = styled(Link)`
   cursor: pointer !important;
 `;
 
+const StyledSegment = styled.div`
+  border-radius: 5px;
+  text-align: center;
+  padding: 50px;
+  margin: 20px;
+  max-width: 80%;
+  margin: 0 auto;
+`;
+
+const StyledHeader = styled.h1`
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 50px;
+`;
+
+const StyledIcon = styled.i`
+  font-size: 36px;
+  color: #333;
+  margin-right: 10px;
+`;
+
+const StyledButton = styled(Link)`
+  background-color: teal;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 20px;
+  &:hover {
+    color: orange;
+  }
+`;
+
+const Header = styled.div`
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 50px;
+  & h1{
+    color: green;
+  }
+`;
+
+const IconLabel = styled.h1<{ $success?: boolean }>`
+  color: ${($success) => ($success ? "green" : "grey")};
+`;
+
+const SubmitButton = styled.button<{ $primary: boolean }>`
+  background-color: ${($primary) => ($primary ? "teal" : "grey")};
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+`;
+
 export {
+  IconLabel,
+  Header,
+  SubmitButton,
   Button,
   MainPageWrapper,
   MainLogo,
@@ -134,4 +195,8 @@ export {
   LayersItem,
   HeroContent,
   MyNavLink,
+  StyledSegment,
+  StyledHeader,
+  StyledButton,
+  StyledIcon,
 };

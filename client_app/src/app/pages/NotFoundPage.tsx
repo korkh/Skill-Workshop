@@ -1,20 +1,15 @@
-import { Link } from "react-router-dom";
-import { Button, Header, Icon, Segment } from "semantic-ui-react";
+import { StyledButton, StyledHeader, StyledIcon, StyledSegment } from ".";
 
 const NotFoundPage = () => {
   return (
-    <Segment placeholder>
-      <Header icon>
-        <Icon name="search" />
+    <StyledSegment>
+      <StyledHeader>
+        <StyledIcon className="search icon" />
         Oops - we've looked everywhere but could not find what you are looking
         for!
-      </Header>
-      <Segment.Inline>
-        <Button as={Link} to="/trainings">
-          Return to main page
-        </Button>
-      </Segment.Inline>
-    </Segment>
+      </StyledHeader>
+      <StyledButton to="/trainings">Return to main page</StyledButton>
+    </StyledSegment>
   );
 };
 

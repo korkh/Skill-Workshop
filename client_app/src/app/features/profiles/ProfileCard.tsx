@@ -13,7 +13,7 @@ import { Icon } from "semantic-ui-react";
 interface Props {
   profile: IProfile;
 }
-const ProfileCard = ({ profile }: Props) => {
+const ProfileCard = observer(({ profile }: Props) => {
   function truncate(str: string | undefined) {
     if (str) {
       return str.length > 40 ? str.substring(0, 37) + "..." : str;
@@ -37,6 +37,6 @@ const ProfileCard = ({ profile }: Props) => {
       <FollowButton profile={profile} />
     </CardWrapper>
   );
-};
+});
 
-export default observer(ProfileCard);
+export default ProfileCard;

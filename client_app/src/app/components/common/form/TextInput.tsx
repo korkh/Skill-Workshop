@@ -30,14 +30,13 @@ const TextInput = (props: Props) => {
     <>
       {props.label && <label htmlFor={props.name}>{props.label}</label>}
       <input
-        id={props.name}
-        name={props.name}
-        type={props.type || "text"}
-        placeholder={props.placeholder}
-        value={field.value}
-        onChange={field.onChange}
-        onBlur={field.onBlur}
-        style={{ ...inputStyle, ...(meta.touched ? focusStyle : {}), ...props.style }}
+        {...props}
+        {...field}
+        style={{
+          ...inputStyle,
+          ...(meta.touched ? focusStyle : {}),
+          ...props.style,
+        }}
       />
       {meta.touched && meta.error ? (
         <ErrorLabel>{meta.error}</ErrorLabel>

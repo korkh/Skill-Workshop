@@ -26,7 +26,7 @@ interface Props {
   trainingId: string;
 }
 
-const TrainingDetailedChat = ({ trainingId }: Props) => {
+const TrainingDetailedChat = observer(({ trainingId }: Props) => {
   const { commentStore, userStore } = useStore();
 
   useEffect(() => {
@@ -117,6 +117,6 @@ const TrainingDetailedChat = ({ trainingId }: Props) => {
       </ChatContent>
     </ChatContainer>
   );
-};
+});
 
-export default observer(TrainingDetailedChat);
+export default TrainingDetailedChat;

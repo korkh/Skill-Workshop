@@ -3,17 +3,17 @@ import { Profile } from "./profile";
 export interface ITraining {
   id: string;
   title: string;
-  date: Date | null;
   description: string;
   category: string;
+  date: Date | null;
   city: string;
   venue: string;
   hostUsername?: string;
   isCancelled?: boolean;
   isGoing?: boolean;
   isHost?: boolean;
-  host?: Profile;
   attendees: Profile[];
+  host?: Profile;
 }
 
 export class Training implements ITraining {
@@ -28,17 +28,17 @@ export class Training implements ITraining {
   }
   id: string;
   title: string;
-  date: Date | null;
   description: string;
   category: string;
+  date: Date | null;
   city: string;
   venue: string;
   hostUsername?: string;
   isCancelled?: boolean;
   isGoing?: boolean;
   isHost?: boolean;
-  host?: Profile | undefined;
   attendees: Profile[] = [];
+  host?: Profile;
 }
 
 export class TrainingFormValues {

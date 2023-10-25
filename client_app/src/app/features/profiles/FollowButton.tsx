@@ -11,7 +11,7 @@ interface Props {
   profile: IProfile;
 }
 
-const FollowButton = ({ profile }: Props) => {
+const FollowButton = observer(({ profile }: Props) => {
   const { profileStore, userStore } = useStore();
   const { updateFollowing, loading } = profileStore;
 
@@ -40,6 +40,6 @@ const FollowButton = ({ profile }: Props) => {
       </CustomFollowHiddenButton>
     </FollowButtonWrapper>
   );
-};
+});
 
-export default observer(FollowButton);
+export default FollowButton;

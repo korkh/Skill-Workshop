@@ -11,8 +11,8 @@ using Storage;
 namespace Storage.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231013181005_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231024152445_InitCreated")]
+    partial class InitCreated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

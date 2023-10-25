@@ -1,59 +1,69 @@
-import { Link, NavLink } from "react-router-dom";
-import { Button, Container, Menu, Image, Dropdown } from "semantic-ui-react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../../stores/store";
+import {
+  Container,
+  DropdownButton,
+  DropdownContainer,
+  DropdownItem,
+  DropdownMenu,
+  Logo,
+  LogoImage,
+  NavItem,
+  NavLink,
+  NavList,
+  UserImage,
+  UserMenu,
+  UserName,
+  Wrapper,
+} from ".";
+import { useState } from "react";
 
-const NavBar = () => {
+const NavBar = observer(() => {
   const {
     userStore: { user, logout, isLoggedIn },
   } = useStore();
 
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
   return (
-    <Menu inverted fixed="top">
+    <Wrapper>
       <Container>
-        <Menu.Item as={NavLink} to="/" header>
-          <img
-            src="../../src/app/assets/login/logo.png"
-            alt="logo"
-            style={{ marginRight: "10px" }}
-          />
+        <Logo to="/">
+          <LogoImage src="../../src/app/assets/login/logo.png" alt="logo" />
           Skill Workshop
-        </Menu.Item>
+        </Logo>
         {isLoggedIn && (
-          <>
-            <Menu.Item as={NavLink} to="/trainings" name="Trainings" />
-            <Menu.Item as={NavLink} to="/errors" name="Errors" />
-            <Menu.Item>
-              <Button
-                as={NavLink}
-                to="/createTraining"
-                positive
-                content="Create Training"
-              />
-            </Menu.Item>
-            <Menu.Item position="right">
-              <Image
-                src={user?.image || "assets/user.png"}
-                avatar
-                spaced="right"
-              />
-              <Dropdown pointing="top left" text={user?.displayName}>
-                <Dropdown.Menu>
-                  <Dropdown.Item
-                    as={Link}
-                    to={`/profiles/${user?.userName}`}
-                    text="My Profile"
-                    icon="user"
-                  />
-                  <Dropdown.Item onClick={logout} text="Logout" icon="power" />
-                </Dropdown.Menu>
-              </Dropdown>
-            </Menu.Item>
-          </>
+          <NavList>
+            <NavItem>
+              <NavLink to="/trainings">Trainings</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/createTraining">Create Training</NavLink>
+            </NavItem>
+            <UserMenu>
+              <UserImage src={user?.image || "/user.png"} alt="User" />
+
+              <DropdownContainer>
+                <DropdownButton
+                  onClick={() => setDropdownOpen(!isDropdownOpen)}
+                >
+                  <UserName>{user?.displayName} ⮟</UserName>
+                </DropdownButton>
+                <DropdownMenu $isOpen={isDropdownOpen}>
+                  <DropdownItem>
+                    <NavLink to={`/profiles/${user?.userName}`}>
+                      My Profile
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem onClick={logout}>Logout</DropdownItem>
+                </DropdownMenu>
+              </DropdownContainer>
+            </UserMenu>
+          </NavList>
         )}
       </Container>
-    </Menu>
+    </Wrapper>
   );
-};
+});
 
-export default observer(NavBar); //we need to know if user was updated in store
+export default NavBar;

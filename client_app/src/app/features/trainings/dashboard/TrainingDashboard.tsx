@@ -14,7 +14,7 @@ import {
 } from ".";
 import Loader from "../../../components/loader/LoadingComponent";
 
-const TrainingDashboard = () => {
+const TrainingDashboard = observer(() => {
   const { trainingStore } = useStore();
   const { loadTrainings, trainingRegistry, setPagingParams, pagination } =
     trainingStore;
@@ -71,6 +71,6 @@ const TrainingDashboard = () => {
       </GridMainContent>
     </GridContainer>
   );
-};
+});
 
-export default observer(TrainingDashboard);
+export default TrainingDashboard;

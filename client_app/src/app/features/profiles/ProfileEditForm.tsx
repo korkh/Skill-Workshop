@@ -9,7 +9,7 @@ interface Props {
   setEditMode: (editMode: boolean) => void;
 }
 
-const ProfileEditForm = ({ setEditMode }: Props) => {
+const ProfileEditForm = observer(({ setEditMode }: Props) => {
   const {
     profileStore: { profile, updateProfile },
   } = useStore();
@@ -44,6 +44,6 @@ const ProfileEditForm = ({ setEditMode }: Props) => {
       )}
     </Formik>
   );
-};
+});
 
-export default observer(ProfileEditForm);
+export default ProfileEditForm;

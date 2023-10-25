@@ -20,7 +20,7 @@ interface Props {
   profile: Profile;
 }
 
-const ProfilesPhotos = ({ profile }: Props) => {
+const ProfilesPhotos = observer(({ profile }: Props) => {
   const {
     profileStore: {
       isCurrentUser,
@@ -113,6 +113,6 @@ const ProfilesPhotos = ({ profile }: Props) => {
       </Grid>
     </TabPane>
   );
-};
+});
 
-export default observer(ProfilesPhotos);
+export default ProfilesPhotos;

@@ -21,7 +21,7 @@ namespace API.Controllers
 
         //in that method we are returning nothing. And when we are using IActionRequest it gives us access to the http response types which returns Ok(), return back request, return "Not found" but we don't need to specify the type we returning here
         [HttpPost]
-        public async Task<IActionResult> CreateActivity(Training training)
+        public async Task<IActionResult> CreateTraining(Training training)
         {
             return HandleResult(await Mediator.Send(new Create.Command { Training = training }));
             //Mediator is smart enough to recognize to look inside the body of the request (Training training) to get that object and compare the properties avalable inside training and if they match it that training you want to pass as parameter and it will look inside the body and going get it.

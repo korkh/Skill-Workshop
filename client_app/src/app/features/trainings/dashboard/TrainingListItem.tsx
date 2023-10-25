@@ -14,12 +14,13 @@ import {
 import { CancelledLabel } from "../details";
 import { Icon } from "semantic-ui-react";
 import TrainingDetailedImage from "../details/TrainingDetailedImage";
+import { observer } from "mobx-react-lite";
 
 interface Props {
   training: ITraining;
 }
 
-const TrainingListItem = ({ training }: Props) => {
+const TrainingListItem = observer(({ training }: Props) => {
   return (
     <>
       <TrainingDetailedImage training={training} titleAsLink image>
@@ -65,6 +66,6 @@ const TrainingListItem = ({ training }: Props) => {
       </TrainingDetailedImage>
     </>
   );
-};
+});
 
 export default TrainingListItem;

@@ -183,15 +183,18 @@ export default class TrainingStore {
   createTraining = async (training: TrainingFormValues) => {
     training.id = crypto.randomUUID();
     const user = store.userStore.user;
-    const attendee = new Profile(user!);
+    const profile = new Profile(user!);
 
     try {
+      console.log("Sending request with training data:", training);
       await agent.Trainings.create(training);
+      console.log("Training creation successful!");
       //To remove any wornings when working with async code
       // https://mobx.js.org/actions.html
       const newTraining = new Training(training);
+      console.log("training inside store", newTraining);
       newTraining.hostUsername = user!.userName;
-      newTraining.attendees = [attendee]; //array of const attendee = new Profile(user!);
+      newTraining.attendees = [profile]; //array of const profile = new Profile(user!);
       this.setTraining(newTraining);
       runInAction(() => {
         this.selectedTraining = newTraining;

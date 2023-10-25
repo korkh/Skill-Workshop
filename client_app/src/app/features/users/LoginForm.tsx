@@ -1,12 +1,13 @@
 import { ErrorMessage, Form, Formik } from "formik";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../../stores/store";
-import { LoginButton, LoginErrorLabel, LoginFormWrapper, LoginHeader } from ".";
+import { FormErrorLabel, FormWrapper, FormHeader, FormButton } from ".";
 import LoginInput from "../../components/common/form/TextInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import * as Yup from "yup";
 
-function LoginForm() {
+const LoginForm = observer(() => {
   const { userStore } = useStore();
 
   return (
@@ -17,10 +18,14 @@ function LoginForm() {
           .login(values)
           .catch((error) => setErrors({ error: error.response.data }))
       }
+      validationSchema={Yup.object({
+        email: Yup.string().required(),
+        password: Yup.string().required(),
+      })}
     >
-      {({ handleSubmit, isSubmitting, errors }) => (
-        <LoginFormWrapper>
-          <LoginHeader>Login to Skill Workshop</LoginHeader>
+      {({ handleSubmit, isSubmitting, errors, dirty, isValid }) => (
+        <FormWrapper>
+          <FormHeader>Login to Skill Workshop</FormHeader>
           <Form onSubmit={handleSubmit} autoComplete="off">
             <LoginInput
               placeholder="Email"
@@ -38,23 +43,31 @@ function LoginForm() {
             <ErrorMessage
               name="error"
               render={() => (
-                <div style={{ marginBottom: "10px", textAlign: "left" }}>
-                  <LoginErrorLabel>
+                <div
+                  style={{
+                    marginBottom: "10px",
+                    textAlign: "left",
+                  }}
+                >
+                  <FormErrorLabel>
                     <FontAwesomeIcon icon={faTriangleExclamation} color="red" />{" "}
                     {errors.error}
-                  </LoginErrorLabel>
+                  </FormErrorLabel>
                 </div>
               )}
             />
             <br />
-            <LoginButton disabled={isSubmitting} type="submit">
+            <FormButton
+              disabled={isSubmitting || !dirty || !isValid}
+              type="submit"
+            >
               {isSubmitting ? "Logging in..." : "Login"}
-            </LoginButton>
+            </FormButton>
           </Form>
-        </LoginFormWrapper>
+        </FormWrapper>
       )}
     </Formik>
   );
-}
+});
 
-export default observer(LoginForm);
+export default LoginForm;

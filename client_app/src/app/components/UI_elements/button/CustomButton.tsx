@@ -11,6 +11,7 @@ interface ButtonProps {
   to?: string;
   content?: string;
   children?: React.ReactNode;
+  type?: "button" | "submit" | "reset";
 }
 
 const StyledButton = styled.button<ButtonProps>`
@@ -44,6 +45,7 @@ const CustomButton: React.FC<ButtonProps> = ({
   to,
   children,
   content,
+  type,
 }) => {
   if (to) {
     return (
@@ -59,6 +61,7 @@ const CustomButton: React.FC<ButtonProps> = ({
         color={color}
         onClick={onClick}
         disabled={disabled || loading}
+        type={type}
       >
         {loading && disabled ? content : loading ? children : content}
       </StyledButton>

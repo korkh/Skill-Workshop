@@ -14,7 +14,7 @@ import {
 } from "./index";
 import { Link } from "react-router-dom";
 
-const MainPage = () => {
+const MainPage = observer(() => {
   const handleMouseMove = (e: MouseEvent) => {
     Object.assign(document.documentElement, {
       style: `
@@ -85,6 +85,6 @@ const MainPage = () => {
       </Layers>
     </MainPageWrapper>
   );
-};
+});
 
-export default observer(MainPage);
+export default MainPage;

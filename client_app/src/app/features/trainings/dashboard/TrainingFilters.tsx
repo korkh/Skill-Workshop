@@ -16,7 +16,7 @@ interface IOptions {
   title: string;
 }
 
-const TrainingFilters = () => {
+const TrainingFilters = observer(() => {
   const {
     trainingStore: { predicate, setPredicate },
   } = useStore();
@@ -56,6 +56,6 @@ const TrainingFilters = () => {
       />
     </FiltersContainer>
   );
-};
+});
 
-export default observer(TrainingFilters);
+export default TrainingFilters;

@@ -4,7 +4,7 @@ import ProfileCard from "./ProfileCard";
 import { PaneCardGroup, PaneContainer, PaneHeader } from ".";
 import Loader from "../../components/loader/LoadingComponent";
 
-const ProfileFollowings = () => {
+const ProfileFollowings = observer(() => {
   const { profileStore } = useStore();
   const { profile, followings, loadingFollowings, activeTab } = profileStore;
 
@@ -18,12 +18,12 @@ const ProfileFollowings = () => {
           : `People ${profile?.displayName} is following`}
       </PaneHeader>
       <PaneCardGroup>
-          {followings.map((profile) => (
-            <ProfileCard key={profile.userName} profile={profile} />
-          ))}
+        {followings.map((profile) => (
+          <ProfileCard key={profile.userName} profile={profile} />
+        ))}
       </PaneCardGroup>
     </PaneContainer>
   );
-};
+});
 
-export default observer(ProfileFollowings);
+export default ProfileFollowings;

@@ -10,7 +10,7 @@ interface Props {
   training: ITraining;
 }
 
-const TrainingDetailedHeader = ({ training }: Props) => {
+const TrainingDetailedHeader = observer(({ training }: Props) => {
   const {
     trainingStore: { updateAttendance, loading, cancelTrainingToggle },
   } = useStore();
@@ -69,6 +69,6 @@ const TrainingDetailedHeader = ({ training }: Props) => {
       </span>
     </>
   );
-};
+});
 
-export default observer(TrainingDetailedHeader);
+export default TrainingDetailedHeader;

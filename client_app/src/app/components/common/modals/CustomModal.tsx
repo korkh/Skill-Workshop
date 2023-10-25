@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import { ModalContainer, ModalBody, ModalContent, ModalCloseButton } from ".";
 import { useStore } from "../../../stores/store";
 
-const CustomModal = () => {
+const CustomModal = observer(() => {
   const { modalStore } = useStore();
 
   const closeModal = () => {
@@ -17,6 +17,6 @@ const CustomModal = () => {
       </ModalContent>
     </ModalContainer>
   );
-};
+});
 
-export default observer(CustomModal);
+export default CustomModal;

@@ -9,7 +9,7 @@ import TrainingDetailedInfo from "./TrainingDetailedInfo";
 import TrainingDetailedSidebar from "./TrainingDetailedSidebar";
 import { TrainingDetailsContainer, TrainingDetailsColumn } from ".";
 
-const TrainingDetails = () => {
+const TrainingDetails = observer(() => {
   const { trainingStore } = useStore();
   const {
     selectedTraining: training,
@@ -41,6 +41,6 @@ const TrainingDetails = () => {
       </TrainingDetailsColumn>
     </TrainingDetailsContainer>
   );
-};
+});
 
-export default observer(TrainingDetails);
+export default TrainingDetails;

@@ -7,13 +7,13 @@ import NavBar from "./navbar/NavBar";
 import { useStore } from "../stores/store";
 import MainPage from "../pages/MainPage";
 import AppContainer from ".";
-import "semantic-ui-css/semantic.min.css";
+// import "semantic-ui-css/semantic.min.css";
 import "react-date-picker/dist/DatePicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-calendar/dist/Calendar.css";
 import Loader from "../components/loader/LoadingComponent";
 
-function App() {
+const App = observer(() => {
   const location = useLocation();
   const { commonStore, userStore } = useStore();
 
@@ -45,6 +45,6 @@ function App() {
       )}
     </>
   );
-}
+});
 
-export default observer(App);
+export default App;

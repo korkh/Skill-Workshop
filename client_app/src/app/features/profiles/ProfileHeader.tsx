@@ -17,7 +17,7 @@ import { observer } from "mobx-react-lite";
 interface Props {
   profile: IProfile;
 }
-const ProfileHeader = ({ profile }: Props) => {
+const ProfileHeader = observer(({ profile }: Props) => {
   return (
     <Segment>
       <Grid>
@@ -47,6 +47,6 @@ const ProfileHeader = ({ profile }: Props) => {
       </Grid>
     </Segment>
   );
-};
+});
 
-export default observer(ProfileHeader);
+export default ProfileHeader;

@@ -20,10 +20,8 @@ export default class UserStore {
   }
 
   login = async (credentials: IUserFormValues) => {
-    console.log(credentials);
     try {
       const user = await agent.Account.login(credentials);
-      console.log("Login Response:", user);
       store.commonStore.setToken(user.token);
       this.startRefreshTokenTimer(user);
       runInAction(() => (this.user = user));

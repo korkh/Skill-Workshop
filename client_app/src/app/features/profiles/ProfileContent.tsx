@@ -10,7 +10,7 @@ import { TabContainer, TabContent, TabItem, Tabs } from ".";
 interface Props {
   profile: IProfile;
 }
-const ProfileContent = ({ profile }: Props) => {
+const ProfileContent = observer(({ profile }: Props) => {
   const { profileStore } = useStore();
   const activeTabIndex: number | string = profileStore.activeTab || 0;
   const tabs = [
@@ -39,6 +39,6 @@ const ProfileContent = ({ profile }: Props) => {
       <TabContent>{tabs[activeTabIndex].content}</TabContent>
     </>
   );
-};
+});
 
-export default observer(ProfileContent);
+export default ProfileContent;

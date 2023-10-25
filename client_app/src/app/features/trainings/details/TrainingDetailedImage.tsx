@@ -20,45 +20,42 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const TrainingDetailedImage = ({
-  training,
-  titleAsLink,
-  image,
-  children,
-}: Props) => {
-  return (
-    <TrainingImageContainer>
-      {training.isCancelled && <CancelledLabel>Cancelled</CancelledLabel>}
-      <TrainingImage
-        src={`/categoryImages/${training.category}.jpg`}
-        alt="Training Category"
-      />
-      <TrainingImageText>
-        <div>
-          {titleAsLink ? (
-            <ItemHeader as={Link} to={`/trainings/${training.id}`}>
-              {training.title}
-            </ItemHeader>
-          ) : (
-            <Title>{training.title}</Title>
-          )}
-          <p>{format(training.date!, "dd MMM yyyy")}</p>
-          <p>
-            Hosted by{" "}
-            <strong>
-              <ItemUserName to={`/profiles/${training.host?.userName}`}>
-                {training.host?.displayName}
-              </ItemUserName>{" "}
-              {image && (
-                <ItemImage src={training.host?.image || "./user.png"} />
-              )}
-            </strong>
-          </p>
-        </div>
-      </TrainingImageText>
-      {children}
-    </TrainingImageContainer>
-  );
-};
+const TrainingDetailedImage = observer(
+  ({ training, titleAsLink, image, children }: Props) => {
+    return (
+      <TrainingImageContainer>
+        {training.isCancelled && <CancelledLabel>Cancelled</CancelledLabel>}
+        <TrainingImage
+          src={`/categoryImages/${training.category}.jpg`}
+          alt="Training Category"
+        />
+        <TrainingImageText>
+          <div>
+            {titleAsLink ? (
+              <ItemHeader as={Link} to={`/trainings/${training.id}`}>
+                {training.title}
+              </ItemHeader>
+            ) : (
+              <Title>{training.title}</Title>
+            )}
+            <p>{format(training.date!, "dd MMM yyyy")}</p>
+            <p>
+              Hosted by{" "}
+              <strong>
+                <ItemUserName to={`/profiles/${training.host?.userName}`}>
+                  {training.host?.displayName}
+                </ItemUserName>{" "}
+                {image && (
+                  <ItemImage src={training.host?.image || "./user.png"} />
+                )}
+              </strong>
+            </p>
+          </div>
+        </TrainingImageText>
+        {children}
+      </TrainingImageContainer>
+    );
+  }
+);
 
-export default observer(TrainingDetailedImage);
+export default TrainingDetailedImage;

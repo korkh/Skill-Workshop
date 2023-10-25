@@ -12,8 +12,9 @@ const ErrorLabel = ({ styles, children }: Props) => {
     marginBottom: 15,
     marginTop: -8,
     padding: "5px 0",
-    width: "35%",
-    textAlign: "center",
+    width: "100%",
+    textAlign: "left",
+    backgroundColor: "lavenderblush",
   };
 
   return <div style={{ ...errorStyles, ...styles }}>{children}</div>;
