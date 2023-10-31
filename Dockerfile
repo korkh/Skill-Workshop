@@ -11,6 +11,7 @@ COPY "Storage/Storage.csproj" "Storage/Storage.csproj"
 COPY "Domain/Domain.csproj" "Domain/Domain.csproj"
 COPY "Infrastructure/Infrastructure.csproj" "Infrastructure/Infrastructure.csproj"
 
+# Run restore
 RUN dotnet restore "SkillWorkshop.sln"
 
 # copy everything else and build
