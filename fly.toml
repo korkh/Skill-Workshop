@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for skillworkshop on 2023-10-31T11:10:07+01:00
+# fly.toml app configuration file generated for skillworkshop on 2023-10-31T11:48:48+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -6,8 +6,7 @@
 app = "skillworkshop"
 primary_region = "arn"
 kill_signal = "SIGINT"
-kill_timeout = 5
-processes = []
+kill_timeout = "5s"
 
 [build]
   image = "akorkh/skillworkshop:latest"
