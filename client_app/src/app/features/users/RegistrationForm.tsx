@@ -22,7 +22,7 @@ const RegistrationForm = observer(() => {
       onSubmit={(values, { setErrors }) => {
         userStore
           .register(values)
-          .catch((error) => setErrors({ error: error.response.data }));
+          .catch((error) => setErrors({ error: error }));
       }}
       validationSchema={Yup.object({
         displayName: Yup.string().required("Required"),
