@@ -5,6 +5,9 @@
 
 app = "skillworkshop"
 primary_region = "arn"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
 
 [build]
   image = "akorkh/skillworkshop:latest"
