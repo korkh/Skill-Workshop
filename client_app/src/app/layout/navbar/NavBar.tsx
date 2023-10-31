@@ -16,6 +16,7 @@ import {
   UserName,
   Wrapper,
 } from ".";
+import {LOGO} from "../../assets/login/index";
 import { useState } from "react";
 
 const NavBar = observer(() => {
@@ -29,7 +30,7 @@ const NavBar = observer(() => {
     <Wrapper>
       <Container>
         <Logo to="/">
-          <LogoImage src="../../src/app/assets/login/logo.png" alt="logo" />
+          <LogoImage src={LOGO} alt="logo" />
           Skill Workshop
         </Logo>
         {isLoggedIn && (

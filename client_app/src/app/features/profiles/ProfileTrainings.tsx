@@ -35,6 +35,7 @@ const ProfileTrainings = observer(() => {
   }, [loadUserTrainings, profile]);
 
   const handleTabChange = (e: SyntheticEvent, data: TabProps) => {
+    e.preventDefault();
     loadUserTrainings(
       profile!.userName,
       panes[data.activeIndex as number].pane.key

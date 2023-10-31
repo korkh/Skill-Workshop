@@ -5,7 +5,6 @@ import { FormErrorLabel, FormWrapper, FormHeader, FormButton } from ".";
 import LoginInput from "../../components/common/form/TextInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
-import * as Yup from "yup";
 
 const LoginForm = observer(() => {
   const { userStore } = useStore();
@@ -16,12 +15,8 @@ const LoginForm = observer(() => {
       onSubmit={(values, { setErrors }) =>
         userStore
           .login(values)
-          .catch((error) => setErrors({ error: error.response.data }))
+          .catch(() => setErrors({ error: "Invalid email or password" }))
       }
-      validationSchema={Yup.object({
-        email: Yup.string().required(),
-        password: Yup.string().required(),
-      })}
     >
       {({ handleSubmit, isSubmitting, errors, dirty, isValid }) => (
         <FormWrapper>

@@ -29,11 +29,11 @@ namespace Infrastructure.Security
 
             if (userId == null) return Task.CompletedTask;
 
-            var activityId = Guid.Parse(_httpContextAccessor.HttpContext?.Request.RouteValues.SingleOrDefault(x => x.Key == "id").Value?.ToString());
+            var trainingId = Guid.Parse(_httpContextAccessor.HttpContext?.Request.RouteValues.SingleOrDefault(x => x.Key == "id").Value?.ToString());
 
             var attendee = _dbContext.TrainingAttendees
                 .AsNoTracking() //We dont need the entity framework to track attendee in memory
-                .SingleOrDefaultAsync(x => x.AppUserId == userId && x.TrainingId == activityId).Result; //we cannot use await inside because we are using override the Task and we want to have containing activity attendee object
+                .SingleOrDefaultAsync(x => x.AppUserId == userId && x.TrainingId == trainingId).Result; //we cannot use await inside because we are using override the Task and we want to have containing activity attendee object
 
             if (attendee == null) return Task.CompletedTask;
 
