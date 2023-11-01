@@ -91,7 +91,7 @@ namespace API.Extensions
             services.AddScoped<IUserAccessor, UserAccessor>();
             //Photo managing services
             services.AddScoped<IPhotoAccessor, PhotoAccessor>();
-            services.AddScoped<EmailSender>();
+            services.AddScoped<EmailSender2>();
             services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
             services.AddSignalR();
 

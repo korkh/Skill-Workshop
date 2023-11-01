@@ -12,7 +12,7 @@ using Storage;
 namespace Storage.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231031092532_PostgresInitial")]
+    [Migration("20231101093151_PostgresInitial")]
     partial class PostgresInitial
     {
         /// <inheritdoc />

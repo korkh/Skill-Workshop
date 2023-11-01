@@ -23,8 +23,8 @@ namespace API.Controllers
         private readonly IConfiguration _config;
         private readonly HttpClient _httpClient;
         private readonly SignInManager<AppUser> _signInManager;
-        private readonly EmailSender _emailSender;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, TokenService tokenService, IConfiguration config, EmailSender emailSender)
+        private readonly EmailSender2 _emailSender;
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, TokenService tokenService, IConfiguration config, EmailSender2 emailSender)
         {
             _emailSender = emailSender;
             _signInManager = signInManager;
