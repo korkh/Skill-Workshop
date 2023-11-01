@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for skillworkshop on 2023-11-01T10:57:59+01:00
+# fly.toml app configuration file generated for skillworkshop on 2023-11-01T11:09:51+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -15,11 +15,11 @@ kill_timeout = "5s"
   ASPNETCORE_URLS = "http://+:8080"
   Cloudinary__ApiKey = "917531996741457"
   Cloudinary__CloudName = "dqtgl2rlu"
+  Smtp__FromEmail = "skillworkshop.service@gmail.com"
+  Smtp__FromName = "skillworkshop.service@gmail.com"
   Smtp__Host = "smtp.gmail.com"
   Smtp__Port = "465"
   Smtp__Username = "skillworkshop.service@gmail.com"
-  Smtp__FromEmail = "skillworkshop.service@gmail.com"
-  Smtp__FromName = "skillworkshop.service@gmail.com"
 
 [http_service]
   internal_port = 8080

@@ -1,21 +1,21 @@
 import { observer } from "mobx-react-lite";
-import { Container, Header, Segment } from "semantic-ui-react";
 import { useStore } from "../../stores/store";
+import { Code, ErrorContainer, ErrorHeader, StackTraceSegment, SubHeader } from ".";
 
 const ServerError = observer(() => {
   const { commonStore } = useStore();
 
   return (
-    <Container>
-      <Header as="h1" content="Server Error" />
-      <Header sub as="h5" color="red" content={commonStore.error?.message} />
+    <ErrorContainer>
+      <ErrorHeader>Server Error</ErrorHeader>
+      <SubHeader>{commonStore.error?.message}</SubHeader>
       {commonStore.error?.details && (
-        <Segment>
-          <Header as="h4" content="Stack trace" color="teal" />
-          <code style={{ marginTop: "10px" }}>{commonStore.error.details}</code>
-        </Segment>
+        <StackTraceSegment>
+          <h4>Stack trace</h4>
+          <Code>{commonStore.error.details}</Code>
+        </StackTraceSegment>
       )}
-    </Container>
+    </ErrorContainer>
   );
 });
 

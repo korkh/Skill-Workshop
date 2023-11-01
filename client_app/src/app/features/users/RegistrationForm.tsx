@@ -29,7 +29,7 @@ const RegistrationForm = observer(() => {
         userName: Yup.string().required("Required"),
         email: Yup.string().email("Invalid email address").required("Required"),
         password: Yup.string()
-          .min(6, "Password must be at least 6 characters")
+          .min(8, "Password must be complex with at least one uppercase letter, one lowercase letter, and either a digit or one of the following special characters: @, #, $, %, ^, & or +")
           .required("Required"),
       })}
     >

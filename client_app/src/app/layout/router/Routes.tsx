@@ -2,7 +2,6 @@ import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import RequireAuth from "./RequireAuth";
 import ServerError from "../../features/errors/ServerError";
-import TestErrors from "../../features/errors/TestErrors";
 import TrainingDashboard from "../../features/trainings/dashboard/TrainingDashboard";
 import TrainingDetails from "../../features/trainings/details/TrainingDetails";
 import TrainingForm from "../../features/trainings/form/TrainingForm";
@@ -24,7 +23,6 @@ export const routes: RouteObject[] = [
           { path: "createTraining", element: <TrainingForm key="create" /> },
           { path: "manage/:id", element: <TrainingForm key="manage" /> },
           { path: "profiles/:username", element: <ProfilePage /> },
-          { path: "errors", element: <TestErrors /> },
         ],
       },
 

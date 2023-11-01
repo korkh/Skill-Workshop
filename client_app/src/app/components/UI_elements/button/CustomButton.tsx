@@ -37,36 +37,29 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const CustomButton: React.FC<ButtonProps> = ({
-  color,
-  onClick,
-  disabled,
-  loading,
-  to,
-  children,
-  content,
-  type,
-}) => {
-  if (to) {
-    return (
-      <Link to={to}>
-        <StyledButton color={color} disabled={disabled || loading}>
+const CustomButton: React.FC<ButtonProps> = observer(
+  ({ color, onClick, disabled, loading, to, children, content, type }) => {
+    if (to) {
+      return (
+        <Link to={to}>
+          <StyledButton color={color} disabled={disabled || loading}>
+            {loading && disabled ? content : loading ? children : content}
+          </StyledButton>
+        </Link>
+      );
+    } else {
+      return (
+        <StyledButton
+          color={color}
+          onClick={onClick}
+          disabled={disabled || loading}
+          type={type}
+        >
           {loading && disabled ? content : loading ? children : content}
         </StyledButton>
-      </Link>
-    );
-  } else {
-    return (
-      <StyledButton
-        color={color}
-        onClick={onClick}
-        disabled={disabled || loading}
-        type={type}
-      >
-        {loading && disabled ? content : loading ? children : content}
-      </StyledButton>
-    );
+      );
+    }
   }
-};
+);
 
-export default observer(CustomButton);
+export default CustomButton;
