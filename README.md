@@ -6,6 +6,7 @@ Welcome to the documentation for the Skill-Workshop application. Skill-Workshop 
 
 - [Application Overview](#application-overview)
 - [Technologies Used](#technologies-used)
+- [Application Setup](#application-setup)
 - [API Endpoints](#api-endpoints)
 - [User Authentication](#user-authentication)
 - [User Profile Management](#user-profile-management)
@@ -13,17 +14,18 @@ Welcome to the documentation for the Skill-Workshop application. Skill-Workshop 
 - [Photos](#photos)
 - [Trainings](#trainings)
 - [Paging and Sorting](#paging-and-sorting)
+- [Running the Application](#running-the-application)
+- [Demo](#demo)
 
 ## Application Overview
 
 Skill-Workshop is a platform that connects learners, educators, and employers to facilitate the acquisition and assessment of skills. The application provides various features, such as user authentication, user profile management, the ability to follow other users, uploading photos, and managing training content.
-View a demo of this app [here](https://skillworkshop.fly.dev).
 
 ## Technologies Used
 
 Skill-Workshop is built using a combination of technologies, including:
 
-### NuGet Packages
+### .NET Backend
 
 - MediatR.Extensions.Microsoft.DependencyInjection
 - AutoMapper.Extensions.Microsoft.DependencyInjection
@@ -39,7 +41,7 @@ Skill-Workshop is built using a combination of technologies, including:
 - CloudinaryDotNet
 - Microsoft.AspNetCore.Authorization
 
-### Frontend
+### Frontend (Using Vite)
 
 - React
 - React-DatePicker
@@ -52,6 +54,14 @@ Skill-Workshop is built using a combination of technologies, including:
 ### Dev Dependencies
 
 - Various packages for linting, validation, and building, including TypeScript, Eslint, Formik, MobX, React-Router, and more.
+
+## Application Setup
+
+1. **Backend (.NET)**: Ensure that you have .NET SDK installed. You can use Visual Studio or command-line tools to work with .NET projects.
+
+2. **Frontend (Vite)**: For the frontend, ensure that you have Node.js and npm installed. You can install Vite using npm.
+
+3. **Database**: The application uses a database (SQL or PostgreSQL) for storage. You should set up the database and configure the connection in the backend.
 
 ## API Endpoints
 
@@ -116,18 +126,58 @@ Trainings are a central feature of Skill-Workshop. Users can create, edit, and d
 
 For a better user experience, the application includes support for pagination and sorting when viewing lists of trainings. Users can efficiently navigate through large datasets.
 
-This documentation provides an overview of the Skill-Workshop application, its technologies, and key features. Please refer to the application's source code and detailed documentation for more specific information and instructions on usage.
+## Running the Application
 
-aplication can be tested with default login settings:
+To run the Skill-Workshop application, follow these steps:
 
-Profile 1
-name: bob@test.com
-password: Pa$$w0rd
+1. **Backend (.NET)**:
 
-Profile 2
-name: tom@test.com
-password: Pa$$w0rd
+   - Navigate to the backend directory of the application.
+   - Configure the database connection in the `appsettings.json` file.
+   - Run the following command to start the backend:
 
-Profile 3
-name: jane@test.com
-password: Pa$$w0rd
+     ```
+     dotnet run
+     ```
+
+     or
+
+     ```
+     dotnet watch
+     ```
+
+2. **Frontend (Vite)**:
+
+   - Navigate to the frontend directory of the application.
+   - Install the necessary dependencies by running:
+     ```
+     npm install
+     ```
+   - Start the frontend development server with:
+     ```
+     npm run dev
+     ```
+
+3. **Access the Application**:
+   - Once both the backend and frontend are running, you can access the application in your web browser.
+
+## Demo
+
+You can explore a live demo of the Skill-Workshop application at [here](https://skillworkshop.fly.dev). The demo allows you to test the application with the provided login settings:
+
+**Profile 1**
+
+- Email: bob@test.com
+- Password: Pa$$w0rd
+
+**Profile 2**
+
+- Email: tom@test.com
+- Password: Pa$$w0rd
+
+**Profile 3**
+
+- Email: jane@test.com
+- Password: Pa$$w0rd
+
+This concludes the documentation for the Skill-Workshop application. Please refer to the application's source code and detailed documentation for more specific information and instructions on usage.
