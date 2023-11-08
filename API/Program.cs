@@ -47,9 +47,8 @@ else
     app.Use(async (context, next) =>
     {
         context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000"); // 1 year
-        await next.Invoke();
         context.Response.Headers.Add("Permissions-Policy", "camera=(), microphone=()");
-    await next.Invoke();
+        await next.Invoke();
     });
 }
 
