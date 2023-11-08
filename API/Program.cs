@@ -48,8 +48,8 @@ else
     {
         context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000"); // 1 year
         await next.Invoke();
-        context.Response.Headers.Add("Expect-CT", "max-age=604800");
-        await next.Invoke();
+        context.Response.Headers.Add("Permissions-Policy", "camera=(), microphone=()");
+    await next.Invoke();
     });
 }
 
