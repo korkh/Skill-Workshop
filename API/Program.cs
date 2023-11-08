@@ -23,11 +23,19 @@ builder.Services.AddIdentityServices(builder.Configuration);
 
 var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleware>();
+// Configure the HTTP request pipeline.
 app.UseXContentTypeOptions();
 app.UseReferrerPolicy(options => options.NoReferrer());
 app.UseXXssProtection(Options => Options.EnabledWithBlockMode());
 app.UseXfo(opt => opt.Deny()); //against click-hijacking
-
+app.UseCsp(opt => opt //all from wwwroot from client folder are allowed and for development to remove all issues use app.UseCspReportOnly but before production just app.UseCsp
+    .BlockAllMixedContent()
+    .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com", "sha256-DpOoqibK/BsYhobWHnU38Pyzt5SjDZuR/mFsAiVN7kk="))
+    .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "data:"))
+    .FormActions(s => s.Self())
+    .FrameAncestors(s => s.Self())
+    .ImageSources(s => s.Self().CustomSources("blob:", "data:", "https://res.cloudinary.com"))
+);
 //Add in developing mode Swagger and Swagger UI middleware to enable API documentation and exploration.
 if (app.Environment.IsDevelopment())
 {
