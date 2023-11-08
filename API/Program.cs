@@ -48,8 +48,13 @@ else
     {
         context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000"); // 1 year
         await next.Invoke();
+        context.Response.Headers.Add("Expect-CT", "max-age=604800");
+        await next.Invoke();
     });
 }
+
+// Referrer-Policy controls how much information about the referring page is sent with navigation requests.
+app.UseReferrerPolicy(options => options.NoReferrer());
 
 app.UseCors("CorsPolicy");
 
