@@ -30,7 +30,7 @@ app.UseXXssProtection(Options => Options.EnabledWithBlockMode());
 app.UseXfo(opt => opt.Deny()); //against click-hijacking
 app.UseCsp(opt => opt //all from wwwroot from client folder are allowed and for development to remove all issues use app.UseCspReportOnly but before production just app.UseCsp
     .BlockAllMixedContent()
-    .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com", "sha256-DpOoqibK/BsYhobWHnU38Pyzt5SjDZuR/mFsAiVN7kk="))
+    .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com", "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="))
     .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "data:"))
     .FormActions(s => s.Self())
     .FrameAncestors(s => s.Self())
