@@ -24,14 +24,14 @@ const TrainingDashboard = observer(() => {
     setPagingParams,
     pagination,
     groupedTrainings,
+    loadingInitial,
   } = trainingStore;
   const [loadingNext, setLoadingNext] = useState(false);
-  const [isLoadingComplete, setLoadingComplete] = useState(false);
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
     if (trainingRegistry.size === 0 || groupedTrainings.length == 0)
-      loadTrainings().then(() => setLoadingComplete(true));
+      loadTrainings();
   }, [trainingRegistry.size, loadTrainings, groupedTrainings.length]);
 
   function handleGetNext() {
@@ -39,7 +39,6 @@ const TrainingDashboard = observer(() => {
     setPagingParams(new PagingParams(pagination!.currentPage + 1));
     loadTrainings().then(() => {
       setLoadingNext(false);
-      setLoadingComplete(true);
     });
   }
 
@@ -51,39 +50,36 @@ const TrainingDashboard = observer(() => {
         </GridSidebar>
       )}
       <GridMainContent>
-        {!isLoadingComplete && loadingNext ? (
+        {loadingInitial && !loadingNext ? (
+          <>
+            <TrainingListItemPlaceholder />
+            <TrainingListItemPlaceholder />
+          </>
+        ) : (
+          <>
+            {isSmallScreen && (
+              <GridSideBarMobile>
+                <TrainingFilters />
+              </GridSideBarMobile>
+            )}
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={handleGetNext}
+              hasMore={
+                !loadingNext &&
+                !!pagination &&
+                pagination.currentPage < pagination.totalPages
+              }
+              initialLoad={false}
+            >
+              <TrainingList />
+            </InfiniteScroll>
+          </>
+        )}
+        {loadingNext && (
           <GridLoadingContainer>
             <Loader $zoom={2} />
           </GridLoadingContainer>
-        ) : (
-          <>
-            {trainingStore.loadingInitial && !loadingNext ? (
-              <>
-                <TrainingListItemPlaceholder />
-                <TrainingListItemPlaceholder />
-              </>
-            ) : (
-              <>
-                {isSmallScreen && (
-                  <GridSideBarMobile>
-                    <TrainingFilters />
-                  </GridSideBarMobile>
-                )}
-                <InfiniteScroll
-                  pageStart={0}
-                  loadMore={handleGetNext}
-                  hasMore={
-                    !loadingNext &&
-                    !!pagination &&
-                    pagination.currentPage < pagination.totalPages
-                  }
-                  initialLoad={false}
-                >
-                  <TrainingList />
-                </InfiniteScroll>
-              </>
-            )}
-          </>
         )}
       </GridMainContent>
     </GridContainer>
