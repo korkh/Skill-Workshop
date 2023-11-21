@@ -12,7 +12,7 @@ using Storage;
 namespace Storage.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231121163821_lastInit")]
+    [Migration("20231121193613_lastInit")]
     partial class lastInit
     {
         /// <inheritdoc />

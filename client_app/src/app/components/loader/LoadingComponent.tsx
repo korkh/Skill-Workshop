@@ -16,8 +16,16 @@ const LoaderWrapper = styled.div`
   transform: translate(-50%, -50%);
 `;
 
+const LoaderWrapperMobile = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+`;
+
 interface LoaderProps {
   $zoom?: number;
+  $bottom?: boolean;
 }
 
 const LoaderComponent = styled.div<LoaderProps>`
@@ -33,10 +41,15 @@ const LoaderComponent = styled.div<LoaderProps>`
   animation: ${rotation} 1s linear infinite;
 `;
 
-const Loader = (props: LoaderProps) => (
-  <LoaderWrapper>
-    <LoaderComponent {...props} />
-  </LoaderWrapper>
-);
+const Loader = (props: LoaderProps) =>
+  props.$bottom ? (
+    <LoaderWrapperMobile>
+      <LoaderComponent {...props} />
+    </LoaderWrapperMobile>
+  ) : (
+    <LoaderWrapper>
+      <LoaderComponent {...props} />
+    </LoaderWrapper>
+  );
 
 export default Loader;

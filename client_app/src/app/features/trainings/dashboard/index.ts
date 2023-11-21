@@ -212,6 +212,7 @@ const GridContainer = styled.div<GridProps>`
   grid-gap: ${({ $isSmallScreen }) => ($isSmallScreen ? "0" : "2.5vw")};
   padding-top: ${({ $isSmallScreen }) => ($isSmallScreen ? "0" : "2.5vh")};
   margin-top: 0;
+  scroll-behavior: smooth;
 `;
 
 const GridSidebar = styled.div`

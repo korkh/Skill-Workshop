@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
-import { useStore } from "../../../stores/store";
-import { PagingParams } from "../../../models/pagination";
+import { useEffect, useRef, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
-import TrainingList from "./TrainingList";
-import TrainingFilters from "./TrainingFilters";
-import TrainingListItemPlaceholder from "./TrainingListItemPlaceholder";
 import {
   GridContainer,
-  GridSidebar,
-  GridSideBarMobile,
   GridMainContent,
-  GridLoadingContainer,
+  GridSideBarMobile,
+  GridSidebar,
 } from ".";
 import Loader from "../../../components/loader/LoadingComponent";
 import { useMediaQuery } from "../../../hooks/hooks";
+import { PagingParams } from "../../../models/pagination";
+import { useStore } from "../../../stores/store";
+import TrainingFilters from "./TrainingFilters";
+import TrainingList from "./TrainingList";
+import TrainingListItemPlaceholder from "./TrainingListItemPlaceholder";
 
 const TrainingDashboard = observer(() => {
   const { trainingStore } = useStore();
@@ -27,6 +26,7 @@ const TrainingDashboard = observer(() => {
     loadingInitial,
   } = trainingStore;
   const [loadingNext, setLoadingNext] = useState(false);
+  const scrollRef = useRef<number>(0);
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
@@ -42,8 +42,31 @@ const TrainingDashboard = observer(() => {
     });
   }
 
+  const handleScroll = () => {
+    scrollRef.current = window.pageYOffset;
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!loadingInitial && !loadingNext) {
+      window.scrollTo(0, scrollRef.current);
+    }
+  }, [loadingInitial, loadingNext]);
+
   return (
     <GridContainer $isSmallScreen={isSmallScreen}>
+      {!isSmallScreen && (
+        <GridSidebar>
+          <TrainingFilters />
+        </GridSidebar>
+      )}
+
       <GridMainContent>
         {loadingInitial && !loadingNext ? (
           <>
@@ -52,6 +75,11 @@ const TrainingDashboard = observer(() => {
           </>
         ) : (
           <>
+            {isSmallScreen && (
+              <GridSideBarMobile>
+                <TrainingFilters />
+              </GridSideBarMobile>
+            )}
             <InfiniteScroll
               pageStart={0}
               loadMore={handleGetNext}
@@ -62,25 +90,13 @@ const TrainingDashboard = observer(() => {
               }
               initialLoad={false}
             >
-              {isSmallScreen ? (
-                <GridSideBarMobile>
-                  <TrainingFilters />
-                </GridSideBarMobile>
-              ) : (
-                <GridSidebar>
-                  <TrainingFilters />
-                </GridSidebar>
-              )}
               <TrainingList />
             </InfiniteScroll>
           </>
         )}
-        {loadingNext && (
-          <GridLoadingContainer>
-            <Loader $zoom={2} />
-          </GridLoadingContainer>
-        )}
       </GridMainContent>
+      <br />
+      {loadingNext && <Loader $zoom={3} $bottom />}
     </GridContainer>
   );
 });
