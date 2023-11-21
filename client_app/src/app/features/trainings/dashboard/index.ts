@@ -4,7 +4,7 @@ import styled from "styled-components";
 /** TrainingFilters */
 const FiltersContainer = styled.div`
   width: 100%;
-  margin: 20px 0 5px 15px;
+  margin: 4vh 0 5px 15px;
 `;
 
 const FiltersHeader = styled.div`
@@ -45,13 +45,25 @@ const PlaceholderContainer = styled.div`
   color: #fff;
   display: flex;
   width: 40%;
-
   background-color: rgba(255, 255, 255, 0.2);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(18px);
   backdrop-filter: brightness(1.2);
+
+  @media (max-width: 990px) {
+    position: relative;
+    width: 100%;
+    right: 0;
+    padding: 5px;
+    margin-bottom: 2.5vh;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(0);
+    backdrop-filter: brightness(1.2);
+  }
 `;
 
 interface SegmentGroup {
@@ -61,15 +73,16 @@ interface SegmentGroup {
 }
 
 const SegmentGroup = styled.div<SegmentGroup>`
-  background-color: ${(props) =>
-    props.$bgcolor ? props.$bgcolor : "transparent"};
-  border: 1px solid ${(props) => (props.$bdrcolor ? props.$bdrcolor : "#ccc")};
+  background-color: ${({ $bgcolor }) => ($bgcolor ? $bgcolor : "transparent")};
+  border: 1px solid ${({ $bdrcolor }) => ($bdrcolor ? $bdrcolor : "#ccc")};
   border-radius: 5px;
   padding: 0;
-  flex: ${(props) => (props.$flex ? props.$flex : 1)};
+  flex: ${({ $flex }) => ($flex ? $flex : 1)};
+  width: 100%;
 
   @media (max-width: 768px) {
     flex: 2;
+    width: 80vw;
   }
 `;
 
@@ -80,15 +93,11 @@ interface SegmentProps {
 
 const Segment = styled.div<SegmentProps>`
   padding: 1em;
-  height: ${(props) => (props.$reduced ? "50px" : "auto")};
-  border-bottom: ${(props) => (props.$reduced ? "none" : "1px solid #d4d4d5")};
-  flex-direction: ${(props) =>
-    props.$flexDirection ? props.$flexDirection : "row"};
+  height: ${({ $reduced }) => ($reduced ? "50px" : "auto")};
+  border-bottom: ${({ $reduced }) => ($reduced ? "none" : "1px solid #d4d4d5")};
+  flex-direction: ${({ $flexDirection }) =>
+    $flexDirection ? $flexDirection : "row"};
   width: 100%;
-
-  @media (max-width: 768px) {
-    height: 80px;
-  }
 `;
 
 const PlaceholderHeader = styled.div`
@@ -154,11 +163,11 @@ const LabelContainer = styled.div`
 
 interface LabelProps {
   $bgcolor?: string;
+  $isSmallScreen?: boolean;
 }
 
 const Label = styled.div<LabelProps>`
-  background-color: ${(props) =>
-    props.$bgcolor ? props.$bgcolor : "transparent"};
+  background-color: ${({ $bgcolor }) => ($bgcolor ? $bgcolor : "transparent")};
   color: #fff;
   padding: 5px;
   border-radius: 3px;
@@ -193,20 +202,29 @@ const ButtonLink = styled(Link)`
 `; //end
 
 /** TrainingDashboard */
-
-const GridContainer = styled.div`
+interface GridProps {
+  $isSmallScreen?: boolean;
+}
+const GridContainer = styled.div<GridProps>`
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-gap: 2.5vw;
-  padding-top: 3vh;
+  grid-template-columns: ${({ $isSmallScreen }) =>
+    $isSmallScreen ? "1fr" : "1fr 3fr"};
+  grid-gap: ${({ $isSmallScreen }) => ($isSmallScreen ? "0" : "2.5vw")};
+  padding-top: ${({ $isSmallScreen }) => ($isSmallScreen ? "0" : "2.5vh")};
+  margin-top: 0;
 `;
 
 const GridSidebar = styled.div`
   grid-column: 1 / 2;
 `;
 
-const GridMainContent = styled.div`
-  grid-column: 2 / 3;
+const GridSideBarMobile = styled.div`
+  max-width: 95%;
+  padding: 0 10px 2vh 0;
+`;
+
+const GridMainContent = styled.div<GridProps>`
+  grid-column: ${({ $isSmallScreen }) => ($isSmallScreen ? "1 / 2" : "2 / 3")};
 `;
 
 const GridLoadingContainer = styled.div`
@@ -228,6 +246,10 @@ const ListItem = styled.li<{ $following: boolean }>`
   height: 40px;
   border: ${({ $following }) => ($following ? "3px solid orange" : "none")};
   border-radius: 50%; /* Make it a circle */
+
+  @media (max-width: 768px) {
+    width: 40px;
+  }
 `;
 
 const UserImage = styled.img`
@@ -238,13 +260,20 @@ const UserImage = styled.img`
 
 const PopupContent = styled.div<{ $isVisible: boolean }>`
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -60px;
+  right: -5px;
   background: white;
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 4px;
   display: ${({ $isVisible }) => ($isVisible ? "block" : "none")};
+  z-index: 999;
+
+  @media (max-width: 768px) {
+    /* left: calc(var(--index)*4); */
+    right: unset;
+    bottom: -30px;
+  }
 `;
 
 const ListItemLink = styled(Link)`
@@ -290,4 +319,5 @@ export {
   Segment,
   SegmentGroup,
   PlaceholderButton,
+  GridSideBarMobile,
 };

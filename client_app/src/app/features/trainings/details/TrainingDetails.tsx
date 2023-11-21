@@ -8,6 +8,7 @@ import TrainingDetailedChat from "./TrainingDetailedChat";
 import TrainingDetailedInfo from "./TrainingDetailedInfo";
 import TrainingDetailedSidebar from "./TrainingDetailedSidebar";
 import { TrainingDetailsContainer, TrainingDetailsColumn } from ".";
+import { useMediaQuery } from "../../../hooks/hooks";
 
 const TrainingDetails = observer(() => {
   const { trainingStore } = useStore();
@@ -17,6 +18,7 @@ const TrainingDetails = observer(() => {
     loadingInitial,
     clearSelectedTraining,
   } = trainingStore;
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
   const { id } = useParams();
 
@@ -27,7 +29,7 @@ const TrainingDetails = observer(() => {
 
   if (loadingInitial || !training) return <Loader $zoom={2} />;
 
-  return (
+  return !isSmallScreen ? (
     <TrainingDetailsContainer>
       <TrainingDetailsColumn $columnWidthFlex={0.6}>
         <TrainingDetailedChat trainingId={training.id} />
@@ -38,6 +40,19 @@ const TrainingDetails = observer(() => {
       </TrainingDetailsColumn>
       <TrainingDetailsColumn $columnWidthFlex={0.4}>
         <TrainingDetailedSidebar training={training} />
+      </TrainingDetailsColumn>
+    </TrainingDetailsContainer>
+  ) : (
+    <TrainingDetailsContainer>
+      <TrainingDetailsColumn>
+        <TrainingDetailedHeader training={training} />
+        <TrainingDetailedInfo training={training} />
+      </TrainingDetailsColumn>
+      <TrainingDetailsColumn>
+        <TrainingDetailedSidebar training={training} />
+      </TrainingDetailsColumn>
+      <TrainingDetailsColumn>
+        <TrainingDetailedChat trainingId={training.id} />
       </TrainingDetailsColumn>
     </TrainingDetailsContainer>
   );

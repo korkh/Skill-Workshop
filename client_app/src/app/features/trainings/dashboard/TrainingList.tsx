@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
 import { Fragment } from "react";
+import { TrainingListHeader } from ".";
 import { useStore } from "../../../stores/store";
 import TrainingListItem from "./TrainingListItem";
-import { TrainingListHeader } from ".";
 
 const TrainingList = observer(() => {
   const { trainingStore } = useStore();
@@ -13,7 +13,7 @@ const TrainingList = observer(() => {
       {groupedTrainings.length !== 0 ? (
         <>
           {groupedTrainings.map(([group, trainings]) => (
-            <Fragment key={group}>
+            <Fragment key={group} >
               <TrainingListHeader>{group}</TrainingListHeader>
               {trainings.map((training) => (
                 <TrainingListItem training={training} key={training.id} />

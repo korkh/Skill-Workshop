@@ -13,6 +13,7 @@ interface ButtonProps {
 const TrainingImage = styled.img`
   width: 100%;
   filter: brightness(40%);
+  padding-right: 1vw;
 `;
 
 const CancelledLabel = styled.div`
@@ -129,6 +130,10 @@ const TrainingDetailsContainer = styled.div`
   background-color: #f5f5f5;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const TrainingDetailsColumn = styled.div<{ $columnWidthFlex?: number }>`
@@ -211,6 +216,11 @@ const HostLabel = styled.span`
     right: 10%;
     transform: translateX(30%);
   }
+
+  @media (max-width: 768px) {
+    font-size: calc(var(--index) / 0.8);
+    right: -6.5%;
+  }
 `;
 
 const AttendeeImage = styled.img`
@@ -266,6 +276,11 @@ const ChatHeader = styled.div`
 
 const ChatTextArea = styled.textarea`
   min-height: 50px;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const ChatContent = styled.div`
@@ -274,6 +289,10 @@ const ChatContent = styled.div`
   flex: 1;
   overflow-y: auto;
   max-width: 400px;
+  @media (max-width: 768px) {
+    max-width: unset;
+    width: 100%;
+  }
 `;
 
 const ChatList = styled.div`

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\API.csproj": {}
+    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\API.csproj": {
+    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\API.csproj",
+        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\API.csproj",
         "packagesPath": "C:\\Users\\korkh_jmo2wvy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\obj\\",
+        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,18 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.310\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.311\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Application\\Application.csproj"
+              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Application\\Application.csproj"
               },
-              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -70,13 +70,17 @@
               "target": "Package",
               "version": "[7.0.11, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
             "NWebsec.AspNetCore.Middleware": {
               "target": "Package",
               "version": "[3.0.0, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.11, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -106,18 +110,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Application\\Application.csproj": {
+    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\korkh_jmo2wvy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Application\\obj\\",
+        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -138,11 +142,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Domain\\Domain.csproj"
+              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Storage\\Storage.csproj": {
-                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Storage\\Storage.csproj"
+              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Storage\\Storage.csproj": {
+                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Storage\\Storage.csproj"
               }
             }
           }
@@ -186,18 +190,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Domain\\Domain.csproj": {
+    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\korkh_jmo2wvy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -251,18 +255,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\korkh_jmo2wvy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -283,8 +287,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Application\\Application.csproj"
+              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Application\\Application.csproj"
               }
             }
           }
@@ -328,18 +332,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Storage\\Storage.csproj": {
+    "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Storage\\Storage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Storage\\Storage.csproj",
+        "projectUniqueName": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Storage\\Storage.csproj",
         "projectName": "Storage",
-        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Storage\\Storage.csproj",
+        "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Storage\\Storage.csproj",
         "packagesPath": "C:\\Users\\korkh_jmo2wvy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Storage\\obj\\",
+        "outputPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Storage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -360,8 +364,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\Domain\\Domain.csproj"
+              "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\Domain\\Domain.csproj"
               }
             }
           }
@@ -376,9 +380,13 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.11, )"
             }
           },
           "imports": [
@@ -397,7 +405,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
         }
       }
     }

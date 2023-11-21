@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LtyZTy7ZscpVTFrHkFdr7gP8p2uNXZhePz0XjmUDhAA=",
+  "Hash": "7GXoMHLv6M4m4M919q8hsaqnLkxpn6VAF/mCJyoglSw=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "API\\wwwroot",
       "Source": "API",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\bg-437bfb9a.jpg",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\bg-437bfb9a.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/bg-437bfb9a.jpg",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\bg-437bfb9a.jpg"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-42e369dc.ttf",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-42e369dc.ttf",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-42e369dc.ttf",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-42e369dc.ttf"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-6519a15b.svg",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-6519a15b.svg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-6519a15b.svg",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-6519a15b.svg"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-9fafd6c3.woff",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-9fafd6c3.woff",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-9fafd6c3.woff",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-9fafd6c3.woff"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-d023c55f.eot",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-d023c55f.eot",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-d023c55f.eot",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-d023c55f.eot"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-e7d4d534.woff2",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\brand-icons-e7d4d534.woff2",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-e7d4d534.woff2",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-e7d4d534.woff2"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\flags-94d5c7f1.png",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\flags-94d5c7f1.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/flags-94d5c7f1.png",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\flags-94d5c7f1.png"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\icons-282a64fb.svg",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\icons-282a64fb.svg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-282a64fb.svg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-282a64fb.svg"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\icons-434466b5.woff2",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\icons-434466b5.woff2",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-434466b5.woff2",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-434466b5.woff2"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\icons-8b4e1b84.eot",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\icons-8b4e1b84.eot",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-8b4e1b84.eot",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-8b4e1b84.eot"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\icons-95b6a484.woff",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\icons-95b6a484.woff",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-95b6a484.woff",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-95b6a484.woff"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\icons-cb7f81f5.ttf",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\icons-cb7f81f5.ttf",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-cb7f81f5.ttf",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-cb7f81f5.ttf"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\index-5ab3f0dd.js",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\index-5ab3f0dd.js",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/index-5ab3f0dd.js",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\index-5ab3f0dd.js"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\index-f817a0d3.css",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\index-f817a0d3.css",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/index-f817a0d3.css",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\index-f817a0d3.css"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\kamerik205-heavy-d75bd6d9.woff2",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\kamerik205-heavy-d75bd6d9.woff2",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/kamerik205-heavy-d75bd6d9.woff2",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\kamerik205-heavy-d75bd6d9.woff2"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\layer-1-5b982b24.png",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\layer-1-5b982b24.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/layer-1-5b982b24.png",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\layer-1-5b982b24.png"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\layer-2-3bba11cb.png",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\layer-2-3bba11cb.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/layer-2-3bba11cb.png",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\layer-2-3bba11cb.png"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\layer-3-6cd255a8.png",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\layer-3-6cd255a8.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/layer-3-6cd255a8.png",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\layer-3-6cd255a8.png"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\logo-0e6fbe5f.png",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\logo-0e6fbe5f.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/logo-0e6fbe5f.png",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\logo-0e6fbe5f.png"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\merriweather-regular-italic-499ec54e.woff2",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\merriweather-regular-italic-499ec54e.woff2",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/merriweather-regular-italic-499ec54e.woff2",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\merriweather-regular-italic-499ec54e.woff2"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-4537fa06.eot",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-4537fa06.eot",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-4537fa06.eot",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-4537fa06.eot"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-4bc359c2.woff",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-4bc359c2.woff",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-4bc359c2.woff",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-4bc359c2.woff"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-4d288344.woff2",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-4d288344.woff2",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-4d288344.woff2",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-4d288344.woff2"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-67172172.ttf",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-67172172.ttf",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-67172172.ttf",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-67172172.ttf"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-ae8fd02a.svg",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\outline-icons-ae8fd02a.svg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-ae8fd02a.svg",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-ae8fd02a.svg"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\categoryImages\\bootcamps.jpg",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\categoryImages\\bootcamps.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "categoryImages/bootcamps.jpg",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\categoryImages\\bootcamps.jpg"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\categoryImages\\courses.jpg",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\categoryImages\\courses.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "categoryImages/courses.jpg",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\categoryImages\\courses.jpg"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\categoryImages\\lectures.jpg",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\categoryImages\\lectures.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "categoryImages/lectures.jpg",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\categoryImages\\lectures.jpg"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\categoryImages\\seminars.jpg",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\categoryImages\\seminars.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "categoryImages/seminars.jpg",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\categoryImages\\seminars.jpg"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\categoryImages\\webinars.jpg",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\categoryImages\\webinars.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "categoryImages/webinars.jpg",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\categoryImages\\webinars.jpg"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\index.html",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\logo.ico",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\logo.ico",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "logo.ico",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\logo.ico"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\placeholder.png",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\placeholder.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "placeholder.png",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\placeholder.png"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\user.png",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\user.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\SkillWorkshop\\API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "user.png",
       "AssetKind": "All",

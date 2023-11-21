@@ -26,7 +26,7 @@ const ButtonContainer = styled.div`
 
 const SubmitButton = styled.button`
   padding: 10px 20px;
-  background-color: limegreen;
+  background-color: green;
   color: white;
   border: none;
   border-radius: 8px;

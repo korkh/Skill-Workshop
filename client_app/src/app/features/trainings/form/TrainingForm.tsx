@@ -47,7 +47,6 @@ const TrainingForm = observer(() => {
         ...training,
         id: crypto.randomUUID(),
       };
-      console.log(newTraining);
       createTraining(newTraining).then(() => {
         navigate(`/trainings/${newTraining.id}`);
       });
@@ -85,6 +84,8 @@ const TrainingForm = observer(() => {
               timeCaption="time"
               dateFormat="MMMM d, yyyy HH:mm"
             />
+            <br />
+            <br />
             <FormHeader>LOCATION DETAILS</FormHeader>
             <TextInput name="venue" placeholder="Venue" />
             <TextInput name="city" placeholder="city" />

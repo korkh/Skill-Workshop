@@ -37,6 +37,12 @@ const NavList = styled.ul`
   padding: 0;
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: larger;
+  }
 `;
 
 const NavItem = styled.li`
@@ -44,6 +50,9 @@ const NavItem = styled.li`
 
   &:last-child {
     margin-right: 0;
+  }
+  @media (max-width: 768px) {
+    margin: calc(var(--index) * 2) 0;
   }
 `;
 
@@ -71,10 +80,15 @@ const UserImage = styled.img`
 
 const UserName = styled.div`
   font-weight: 700;
+  &:hover {
+    text-decoration: underline;
+    color: orange;
+  }
 `;
 
 const DropdownContainer = styled.div`
   position: relative;
+  z-index: 999;
 `;
 
 const DropdownButton = styled.button`
@@ -119,6 +133,63 @@ const DropdownItem = styled.div`
   cursor: pointer;
 `;
 
+// Hamburger menu
+const Hamburger = styled.div`
+  display: none;
+  cursor: pointer;
+  margin-right: 10px;
+
+  @media (max-width: 768px) {
+    display: block; /* Show the hamburger menu on small screens */
+    font-size: calc(var(--index) * 2);
+    &:hover {
+      color: orange;
+    }
+  }
+`;
+
+const HamburgerMenu = styled.div<{ $isOpen: boolean }>`
+  display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
+  position: fixed;
+  top: 0;
+  right: ${({ $isOpen }) => ($isOpen ? "0" : "-250px")};
+  height: 100%;
+  background-color: #333;
+  width: calc(var(--index) * 25);
+  padding: calc(var(--index) * 4);
+  transition: right 2s ease-in-out;
+  z-index: 999;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+const NavbarLinks = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+    color: orange;
+  }
+`; // End Hamburger menu
+
 export {
   Wrapper,
   Container,
@@ -134,4 +205,8 @@ export {
   DropdownMenu,
   DropdownItem,
   DropdownButton,
+  Hamburger,
+  HamburgerMenu,
+  NavbarLinks,
+  CloseButton,
 };

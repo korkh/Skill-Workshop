@@ -95,7 +95,7 @@ export default class TrainingStore {
     //and each date will have an array of trainings inside IActivities[]
     return Object.entries(
       this.trainingsByDates.reduce((trainings, training) => {
-        const date = format(training.date!, "dd MMMM yyyy");
+        const date = format(training.date!, "MMMM yyyy");
         //returning group set of trainings
         trainings[date] = trainings[date]
           ? [...trainings[date], training]

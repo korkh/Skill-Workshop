@@ -22,14 +22,13 @@ namespace API.Extensions
             // {
             //     try
             //     {
-            //         options.UseNpgsql(config.GetConnectionString("DefaultConnection"));
+            //         options.UseSqlite(config.GetConnectionString("DefaultConnection"));
             //     }
             //     catch (Exception ex)
             //     {
             //         Console.WriteLine($"Error occured in AppServiceExtensions while configuring database context: {ex}");
             //     }
             // });
-
             services.AddDbContext<DataContext>(options =>
                 {
                     var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");

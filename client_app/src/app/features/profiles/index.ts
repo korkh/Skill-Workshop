@@ -16,6 +16,10 @@ const CardWrapper = styled(Link)`
   align-items: center;
   justify-content: center;
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    width: calc(var(--index) * 15);
+  }
 `;
 
 const CardImage = styled.img`
@@ -53,6 +57,7 @@ const CustomFollowButton = styled.button<FollowButtonProps>`
   background-color: teal;
   color: white;
   border: none;
+  height: calc(var(--index) * 2);
   cursor: pointer;
 `;
 
@@ -62,7 +67,7 @@ interface HiddenButtonProps {
 
 const CustomFollowHiddenButton = styled(CustomFollowButton)<HiddenButtonProps>`
   background-color: ${({ $following }) => ($following ? "red" : "green")};
-  height: calc(var(--index) * 1.65);
+  height: calc(var(--index) * 2);
   position: relative;
   width: 100%;
   display: none;

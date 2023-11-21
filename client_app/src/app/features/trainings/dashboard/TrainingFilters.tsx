@@ -36,7 +36,7 @@ const TrainingFilters = observer(() => {
   return (
     <FiltersContainer>
       <FiltersHeader>
-        <FontAwesomeIcon icon={faFilter} />
+        <FontAwesomeIcon icon={faFilter} size="sm" />
         <p>Filters</p>
       </FiltersHeader>
       <FiltersDropdown
