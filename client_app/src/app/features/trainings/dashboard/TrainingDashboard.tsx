@@ -44,11 +44,6 @@ const TrainingDashboard = observer(() => {
 
   return (
     <GridContainer $isSmallScreen={isSmallScreen}>
-      {!isSmallScreen && (
-        <GridSidebar>
-          <TrainingFilters />
-        </GridSidebar>
-      )}
       <GridMainContent>
         {loadingInitial && !loadingNext ? (
           <>
@@ -57,11 +52,6 @@ const TrainingDashboard = observer(() => {
           </>
         ) : (
           <>
-            {isSmallScreen && (
-              <GridSideBarMobile>
-                <TrainingFilters />
-              </GridSideBarMobile>
-            )}
             <InfiniteScroll
               pageStart={0}
               loadMore={handleGetNext}
@@ -72,6 +62,15 @@ const TrainingDashboard = observer(() => {
               }
               initialLoad={false}
             >
+              {isSmallScreen ? (
+                <GridSideBarMobile>
+                  <TrainingFilters />
+                </GridSideBarMobile>
+              ) : (
+                <GridSidebar>
+                  <TrainingFilters />
+                </GridSidebar>
+              )}
               <TrainingList />
             </InfiniteScroll>
           </>
