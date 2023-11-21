@@ -10,6 +10,7 @@ import {
   FiltersHeader,
 } from ".";
 import { useState } from "react";
+import { useMediaQuery } from "../../../hooks/hooks";
 
 interface IOptions {
   value: string;
@@ -33,10 +34,12 @@ const TrainingFilters = observer(() => {
     setPredicate(value, "true");
   };
 
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
+
   return (
     <FiltersContainer>
       <FiltersHeader>
-        <FontAwesomeIcon icon={faFilter} size="sm" />
+        {!isSmallScreen && <FontAwesomeIcon icon={faFilter} size="sm" />}
         <p>Filters</p>
       </FiltersHeader>
       <FiltersDropdown

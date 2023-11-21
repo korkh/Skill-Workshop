@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7GXoMHLv6M4m4M919q8hsaqnLkxpn6VAF/mCJyoglSw=",
+  "Hash": "hXTzT9BeQ6+7jJ0Ny6dQ0yJfx/67GLctvXdYofuikTs=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -221,12 +221,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-cb7f81f5.ttf"
     },
     {
-      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\index-5ab3f0dd.js",
+      "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\index-aac82fe3.js",
       "SourceId": "API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\",
       "BasePath": "_content/API",
-      "RelativePath": "assets/index-5ab3f0dd.js",
+      "RelativePath": "assets/index-aac82fe3.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -235,7 +235,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\index-5ab3f0dd.js"
+      "OriginalItemSpec": "wwwroot\\assets\\index-aac82fe3.js"
     },
     {
       "Identity": "C:\\Users\\korkh_jmo2wvy\\Documents\\My study\\My_Self_Education\\5_SkillWorkshop\\API\\wwwroot\\assets\\index-f817a0d3.css",
