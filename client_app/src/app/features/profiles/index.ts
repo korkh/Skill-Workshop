@@ -145,6 +145,11 @@ const FollowSegment = styled.div`
 const TabContainer = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 `;
 
 const TabContent = styled.div`
@@ -154,13 +159,27 @@ const TabContent = styled.div`
 const Tabs = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    overflow-x: auto;
+    gap: 5px;
+  }
 `;
 
 const TabItem = styled.div<{ $active: boolean }>`
   padding: 10px 20px;
   cursor: pointer;
-  border-bottom: ${(props) => (props.$active ? "2px solid teal" : "none")};
-  font-weight: ${(props) => (props.$active ? "bold" : "none")};
+  border-bottom: ${({ $active }) => ($active ? "2px solid teal" : "none")};
+  font-weight: ${({ $active }) => ($active ? "bold" : "none")};
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `; //PRofile Content
 
 /** Tab Followings  */

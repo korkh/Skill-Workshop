@@ -45,7 +45,7 @@ const TrainingDashboard = observer(() => {
 
   return (
     <GridContainer $isSmallScreen={isSmallScreen}>
-      {!isSmallScreen && trainingRegistry.size === 0 && (
+      {!isSmallScreen && (
         <GridSidebar>
           <TrainingFilters />
         </GridSidebar>

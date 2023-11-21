@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { SyntheticEvent, useEffect } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { useStore } from "../../stores/store";
 import { IUserTraining } from "../../models/profile";
 import { observer } from "mobx-react-lite";
@@ -16,7 +16,9 @@ import {
   TabItem,
   Tabs,
 } from ".";
-import { TabProps } from "semantic-ui-react";
+export interface TabProps {
+  [key: string]: number | string;
+}
 
 const panes = [
   { menuItem: "Future Events", pane: { key: "future" } },
@@ -28,7 +30,7 @@ const ProfileTrainings = observer(() => {
   const { profileStore } = useStore();
   const { loadUserTrainings, profile, loadingTrainings, userTrainings } =
     profileStore;
-  const activeTabIndex: number | string = profileStore.activeTab || 0;
+  const [activeTabIndex, setActiveTabIndex] = useState<number | string>(2);
 
   useEffect(() => {
     loadUserTrainings(profile!.userName);
@@ -40,9 +42,12 @@ const ProfileTrainings = observer(() => {
       profile!.userName,
       panes[data.activeIndex as number].pane.key
     );
+    setActiveTabIndex(data.activeIndex);
   };
 
-  if (loadingTrainings) return <Loader />;
+  
+
+  if (loadingTrainings) return <Loader $zoom={3} />;
 
   return (
     <PaneContainer>

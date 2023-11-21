@@ -18,6 +18,7 @@ namespace API.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" }));
+            
             // services.AddDbContext<DataContext>(options =>
             // {
             //     try
@@ -29,6 +30,7 @@ namespace API.Extensions
             //         Console.WriteLine($"Error occured in AppServiceExtensions while configuring database context: {ex}");
             //     }
             // });
+
             services.AddDbContext<DataContext>(options =>
                 {
                     var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");

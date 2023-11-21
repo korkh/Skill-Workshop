@@ -12,8 +12,8 @@ using Storage;
 namespace Storage.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231121122636_PostgreInit")]
-    partial class PostgreInit
+    [Migration("20231121163821_lastInit")]
+    partial class lastInit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

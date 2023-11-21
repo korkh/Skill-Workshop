@@ -105,7 +105,7 @@ const NavBar = observer(() => {
                       <DropdownButton
                         onClick={() => setUserMenuOpen(!isUserMenuOpen)}
                       >
-                        <UserName>{user?.displayName} ⮟</UserName>
+                        <UserName>{user?.displayName} &#x2b07;</UserName>
                       </DropdownButton>
                       <DropdownMenu $isOpen={isUserMenuOpen}>
                         <DropdownItem>

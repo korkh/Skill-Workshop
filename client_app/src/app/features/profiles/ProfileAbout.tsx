@@ -9,8 +9,6 @@ const ProfileAbout = observer(() => {
   const { profileStore } = useStore();
   const { isCurrentUser, profile } = profileStore;
 
-  console.log(profile?.bio);
-
   return (
     <TabPane>
       <Grid>
